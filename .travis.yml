@@ -14,5 +14,5 @@ script:
   - sonar-scanner
     
 script:
-    - sonar-scanner.bat -Dsonar.projectKey=TrabalhoIntegradoKey -Dsonar.organization=sakamotto-github -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=a48e3dff64de99d176e281a1f6fbdacab3c9be3c
+    #- sonar-scanner.bat -Dsonar.projectKey=TrabalhoIntegradoKey -Dsonar.organization=sakamotto-github -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=a48e3dff64de99d176e281a1f6fbdacab3c9be3c
     - echo "Hello..."
