@@ -11,7 +11,7 @@ addons:
       secure: a48e3dff64de99d176e281a1f6fbdacab3c9be3c
 script:
   # other script steps might be done before running the actual analysis
-  - sonar-scanner -X
+  - sonar-scanner
   - echo "Hello..."
     
 #script:
