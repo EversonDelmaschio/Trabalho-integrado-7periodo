@@ -4,5 +4,14 @@ branches:
   only:
     - master
     
+addons:
+  sonarcloud:
+    organization: "sakamotto-github"
+    token:
+      secure: INTEGRACAO_SONAR
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
+    
 script:
     - echo "Hello..."
