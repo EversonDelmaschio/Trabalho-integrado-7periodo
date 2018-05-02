@@ -8,10 +8,10 @@ addons:
   sonarcloud:
     organization: "sakamotto-github"
     token:
-      secure: INTEGRACAO_SONAR
+      secure: a48e3dff64de99d176e281a1f6fbdacab3c9be3c
 script:
   # other script steps might be done before running the actual analysis
-  - sonar-scanner
+  - sonar-scanner -X
   - echo "Hello..."
     
 #script:
