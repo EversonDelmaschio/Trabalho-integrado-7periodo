@@ -10,7 +10,6 @@ addons:
     token:
       secure: a48e3dff64de99d176e281a1f6fbdacab3c9be3c
 script:
-  - make clean
   # other script steps might be done before running the actual analysis
   #- build-wrapper-linux-x86-64 --out-dir outDir make all
   - cd loja-virtual-app
