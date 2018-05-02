@@ -12,7 +12,8 @@ addons:
 script:
   - make clean
   # other script steps might be done before running the actual analysis
-  - build-wrapper-linux-x86-64 --out-dir outDir make all
+  #- build-wrapper-linux-x86-64 --out-dir outDir make all
+  - cd loja-virtual-app
   - sonar-scanner
   - echo "Hello..."
     
