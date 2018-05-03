@@ -15,14 +15,14 @@ module.exports = {
     },
 
     create: async function(req, res){
-        let nome = req.param('nome');
-        let quantidade = req.param('quantidade');
-        let custo = req.param('custo');
-        let descricao = req.param('descricao');
-        let categoriaId = 1;
-        console.log("Create");
-
-        var produtoCriado = await Produto.create({nome, quantidade, custo, categoria: categoriaId}).fetch();
+        console.log("Create ***** ");
+        console.log(req.param('produto'));
+        let produto = req.param('produto');
+        // let quantidade = req.param('quantidade');
+        // let custo = req.param('custo');
+        // let descricao = req.param('descricao');
+        // let categoriaId = 1;
+        var produtoCriado = await Produto.create(produto).fetch();
         if(!produtoCriado){return res.status(500).send({error: 'Erro ao criar um novo produto'})}
         return res.json(produtoCriado);
     },
@@ -63,4 +63,3 @@ module.exports = {
         }
     }
 };
-

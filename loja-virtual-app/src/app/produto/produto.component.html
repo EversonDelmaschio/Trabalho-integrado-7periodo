@@ -1,5 +1,5 @@
 <app-template></app-template>
-<div id="main" class="container-fluid">
+<div id="main" class="container">
   <h3 class="page-header">Adicionar Item:</h3>
   <form (ngSubmit)="cadastrar()">
     <!-- area de campos do form -->
@@ -11,38 +11,28 @@
 
       <div class="form-group col-md-4">
         <label name="descricao">Descricao:</label>
-        <input type="text" [(ngModel)]="produto.descricao" class="form-control" id="descricao" name="descricao">
+        <textarea type="text" [(ngModel)]="produto.descricao" class="form-control" id="descricao" name="descricao">
+
+        </textarea>
+        <!-- <input type="text" [(ngModel)]="produto.descricao" class="form-control" id="descricao" name="descricao"> -->
       </div>
       
       <div class="form-group col-md-4">
         <label name="custo">Custo:</label>
-        <input type="text" [(ngModel)]="produto.custo"class="form-control" id="custo" name="custo">
+        <input type="number" [(ngModel)]="produto.custo"class="form-control" id="custo" name="custo">
       </div>
       
       <div class="form-group col-md-4 ">
         <label name="quantidade">Quantidade:</label>
-        <input type="text" [(ngModel)]="produto.quantidade" class="form-control" name="quantidade" id="quantidade">
+        <input type="number" [(ngModel)]="produto.quantidade" class="form-control" name="quantidade" id="quantidade">
       </div>
+    </div>
 
-      <!-- <div class="form-group col-md-4 ">
-        <label name="categoria">Categoria:</label>
-        <input type="text" 
-        [value]="categoria"
-        (input)="categoria = $event.target.value" class="form-control" id="categoria">
-      </div>
-
-      <div class="form-group col-md-4">
-        <label>Inserir imagem:</label>
-        <input type="text" (keyup.enter) = "addImagem($event.target.value)" class="form-control">
-      </div>
-
-      <div class="form-group col-md-4">
-        <ul>
-          <li *ngFor="let imagem of imagems, let i = index">
-            {{imagem}}
-          </li>
-        </ul>
-      </div>--> 
+    <div class="form-group">
+      <label for="comboCategorias">Example select</label>
+      <select class="form-control" id="comboCategorias">
+        <option *ngFor="let item of categorias">{{item}}</option>
+      </select>
     </div>
     <hr />
     <div id="actions" class="row">

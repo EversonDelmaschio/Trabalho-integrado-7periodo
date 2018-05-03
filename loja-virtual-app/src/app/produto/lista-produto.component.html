@@ -48,7 +48,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Descrição</th>
+                    <th>Nome</th>
                     <th>Categoria</th>
                     <th>Estoque</th>
                     <th>Venda</th>
@@ -57,32 +57,18 @@
             </thead>
             <tbody>
  
-                <tr>
-                    <td>1001</td>
-                    <td>Camisa do super-homem</td>
-                    <td>camisa</td>
-                    <td>5</td>
-                    <td>35,68</td>
+                <tr *ngFor="let produto of produtos">
+                    <td>{{produto.id}}</td>
+                    <td>{{produto.nome}}</td>
+                    <td>{{produto.categoria}}</td>
+                    <td>{{produto.quantidade}}</td>
+                    <td>{{produto.custo}}</td>
                     <td class="actions">
                         <a class="btn btn-success btn-xs" routerLink="/view-produto">Visualizar</a>
                         <a class="btn btn-warning btn-xs" routerLink="/produto">Editar</a>
                         <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                     </td>
                 </tr>
-
-                <tr>
-                  <td>1001</td>
-                  <td>Camisa do Batman</td>
-                  <td>camisa</td>
-                  <td>3</td>
-                  <td>55,68</td>
-                  <td class="actions">
-                      <a class="btn btn-success btn-xs" routerLink="/view-produto">Visualizar</a>
-                      <a class="btn btn-warning btn-xs" routerLink="/produto">Editar</a>
-                      <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                  </td>
-              </tr>
-                
  
             </tbody>
          </table>

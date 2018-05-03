@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ProdutoComponent } from './produto/produto.component';
 import { ViewProdutoComponent } from './view-produto/view-produto.component';
-import { ListaProdutoComponent } from './lista-produto/lista-produto.component';
+import { ListaProdutoComponent } from './produto/lista-produto.component';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 
 
