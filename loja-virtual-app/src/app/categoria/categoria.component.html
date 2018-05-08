@@ -1,0 +1,39 @@
+<app-template></app-template>
+<div id="main" class="container">
+  <h3 class="page-header">Adicionar Categoria:</h3>
+  <form (ngSubmit)="cadastrar()">
+    <!-- area de campos do form -->
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label name="nome">Nome:</label>
+        <input type="text" [(ngModel)]="categoria.nome" class="form-control" id="nome" name="nome">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label name="descricao">Descricao:</label>
+        <textarea type="text" [(ngModel)]="categoria.descricao" class="form-control" id="descricao" name="descricao">
+
+        </textarea>
+        <!-- <input type="text" [(ngModel)]="categoria.descricao" class="form-control" id="descricao" name="descricao"> -->
+      </div>
+      
+      <!--div class="form-group col-md-4">
+        <label name="lucro">Lucro:</label>
+        <input type="number" [(ngModel)]="categoria.lucro"class="form-control" id="lucro" name="lucro">
+      </div-->
+      
+      <div class="form-group col-md-4 ">
+        <label name="desconto">Desconto:</label>
+        <input type="number" [(ngModel)]="categoria.desconto" class="form-control" name="desconto" id="desconto">
+      </div>
+    </div>
+    
+    <hr />
+    <div id="actions" class="row">
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a routerLink="/lista-categoria" class="btn btn-default">Cancelar</a>
+      </div> 
+    </div>
+  </form>
+</div>

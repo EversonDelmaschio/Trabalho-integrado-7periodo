@@ -3,7 +3,7 @@ export class AppConfig{
 
     public static BASE_URL(): string {
         if(this.AMBIENTE == 'dev'){
-            return 'http://localhost:1337/';
+            return 'https://loja-virtual-api.herokuapp.com/';
         }else{
             return 'retornar a url de produção aqui ...';
         }

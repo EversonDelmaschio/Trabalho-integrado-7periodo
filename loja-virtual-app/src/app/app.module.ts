@@ -9,6 +9,11 @@ import { ProdutoComponent } from './produto/produto.component';
 import { ViewProdutoComponent } from './view-produto/view-produto.component';
 import { ListaProdutoComponent } from './produto/lista-produto.component';
 import { routing } from './app.routing';
+import { ClienteComponent } from './cliente/cliente.component';
+import { ListaClienteComponent } from './cliente/lista-cliente.component';
+import { CategoriaComponent } from './categoria/categoria.component';
+import { HomeComponent } from './home/home.component';
+import { ListaCategoriaComponent } from './categoria/lista-categoria.component';
 
 
 @NgModule({
@@ -17,7 +22,12 @@ import { routing } from './app.routing';
     TemplateComponent,
     ProdutoComponent,
     ViewProdutoComponent,
-    ListaProdutoComponent
+    ListaProdutoComponent,
+    ClienteComponent,
+    ListaClienteComponent,
+    CategoriaComponent,
+    HomeComponent,
+    ListaCategoriaComponent
   ],
   imports: [
     BrowserModule,

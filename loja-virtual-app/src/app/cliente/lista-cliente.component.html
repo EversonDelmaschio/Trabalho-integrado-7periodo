@@ -1,0 +1,131 @@
+<app-template></app-template>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="modalLabel">Excluir Cliente</h4>
+          </div>
+          <div class="modal-body">Deseja realmente excluir este Cliente? </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Sim</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Modal -->
+
+<div id="main" class="container-fluid">
+  <div id="top" class="row">
+    <div class="col-md-3">
+        <h2>Clientes</h2>
+    </div>
+ 
+    <div class="col-md-6">
+        <div class="input-group h2">
+            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+ 
+    <div class="col-md-3">
+        <a routerLink="/cliente" class="btn btn-primary pull-right h2">Novo Cliente</a>
+    </div>
+  </div> <!-- /#top -->
+
+  <hr />
+  <div id="list" class="row">
+ 
+    <div class="table-responsive col-md-12">
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Celular</th>
+                    <th>Cep</th>
+                    <th class="actions">Ações</th>
+                 </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>1002</td>
+                    <td>Teste Targarien</td>
+                    <td>TesteDosTestes@gmail.com</td>
+                    <td>(27) 999999999</td>
+                    <td>29051-250</td>
+                    <td class="actions">
+                        <a class="btn btn-success btn-xs" routerLink="/view-cliente">Visualizar</a>
+                        <a class="btn btn-warning btn-xs" routerLink="/cliente">Editar</a>
+                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>1003</td>
+                    <td>Teste Bolton</td>
+                    <td>TesteDosTestes@gmail.com</td>
+                    <td>(27) 999999999</td>
+                    <td>29051-250</td>
+                    <td class="actions">
+                        <a class="btn btn-success btn-xs" routerLink="/view-cliente">Visualizar</a>
+                        <a class="btn btn-warning btn-xs" routerLink="/cliente">Editar</a>
+                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>1001</td>
+                    <td>Teste Stark</td>
+                    <td>TesteDosTestes@gmail.com</td>
+                    <td>(27) 999999999</td>
+                    <td>29051-250</td>
+                    <td class="actions">
+                        <a class="btn btn-success btn-xs" routerLink="/view-cliente">Visualizar</a>
+                        <a class="btn btn-warning btn-xs" routerLink="/cliente">Editar</a>
+                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                    </td>
+                </tr>
+ 
+                <tr *ngFor="let cliente of clientes">
+                    <td>{{cliente.id}}</td>
+                    <td>{{cliente.nome}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>{{cliente.celular}}</td>
+                    <td>{{cliente.cep}}</td>
+                    <td class="actions">
+                        <a class="btn btn-success btn-xs" routerLink="/view-cliente">Visualizar</a>
+                        <a class="btn btn-warning btn-xs" routerLink="/cliente">Editar</a>
+                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                    </td>
+                </tr>
+ 
+            </tbody>
+         </table>
+ 
+     </div>
+ </div> <!-- /#list -->
+
+ <div id="bottom" class="row">
+  <div class="col-md-12">
+       
+      <ul class="pagination">
+          <li class="disabled"><a>&lt; Anterior</a></li>
+          <li class="disabled"><a>1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li class="next"><a href="#" rel="next">Próximo &gt;</a></li>
+      </ul><!-- /.pagination -->
+
+  </div>
+</div> <!-- /#bottom -->
+</div>
