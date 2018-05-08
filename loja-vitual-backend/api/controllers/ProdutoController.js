@@ -9,19 +9,15 @@ module.exports = {
     findAll: function(req, res){
         Produto.find({}).exec((err, produtos) => {
             if(err) res.status(500).send({error: 'Erro ao buscar produtos'});
-            // lista = Produto.validar();
             res.status(200).send(produtos);
         });
     },
 
     create: async function(req, res){
-        console.log("Create ***** ");
-        console.log(req.param('produto'));
-        let produto = req.param('produto');
-        // let quantidade = req.param('quantidade');
-        // let custo = req.param('custo');
-        // let descricao = req.param('descricao');
-        // let categoriaId = 1;
+        let produto = JSON.parse(req.param('produto'));
+        if(!produto){
+            return res.status(500).send({error: 'O produto não está preenchido'});
+        }
         var produtoCriado = await Produto.create(produto).fetch();
         if(!produtoCriado){return res.status(500).send({error: 'Erro ao criar um novo produto'})}
         return res.json(produtoCriado);

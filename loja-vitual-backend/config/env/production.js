@@ -21,7 +21,6 @@
 
 module.exports = {
 
-
   /**************************************************************************
   *                                                                         *
   * Tell Sails what database(s) it should use in production.                *
@@ -47,8 +46,14 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
-      // adapter: 'sails-mysql',
-      // url: 'mysql://user:password@host:port/database',
+      adapter: 'sails-postgresql',
+      host: 'ec2-107-21-126-193.compute-1.amazonaws.com',
+      port: 5432,
+      user: 'splfaklcaaqetu',
+      password: 'f2f64fedb88dd629798962a27e48193504a4288239717c6f2ccbd67bb11e9b3c',
+      database: 'd65sn1id6ee71g',
+      pool: false,
+      ssl: true
       //--------------------------------------------------------------------------
       //  /\   To avoid checking it in to version control, you might opt to set
       //  ||   sensitive credentials like `url` using an environment variable.
@@ -250,10 +255,7 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'https://example.com',
-    //   'https://staging.example.com',
-    // ],
+   onlyAllowOrigins: [],
 
 
     /***************************************************************************
@@ -390,7 +392,4 @@ module.exports = {
     //--------------------------------------------------------------------------
 
   },
-
-
-
 };
