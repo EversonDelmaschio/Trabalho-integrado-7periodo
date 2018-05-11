@@ -31,14 +31,14 @@
     <div class="form-group">
       <label for="comboCategorias">Example select</label>
       <select class="form-control" id="comboCategorias">
-        <option *ngFor="let item of categorias">{{item}}</option>
+        <option *ngFor="let item of categorias" value="item.id">{{item.nome}}</option>
       </select>
     </div>
     <hr />
     <div id="actions" class="row">
       <div class="col-md-12">
         <button type="submit" class="btn btn-primary">Salvar</button>
-        <a routerLink="" class="btn btn-default">Cancelar</a>
+        <a routerLink="/lista-produto" class="btn btn-default">Cancelar</a>
       </div> 
     </div>
   </form>

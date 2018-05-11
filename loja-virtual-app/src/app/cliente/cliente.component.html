@@ -9,7 +9,12 @@
         <label name="nome">Nome:</label>
         <input type="text" [(ngModel)]="cliente.nome" class="form-control" id="nome" name="nome">
       </div>
-
+      
+      <div class="form-group col-md-4">
+        <label name="sobrenmome">Sobrenome:</label>
+        <input type="text" [(ngModel)]="cliente.sobrenome" class="form-control" id="sobrenome" name="sobrenome">
+      </div>
+      
       <div class="form-group col-md-4">
         <label name="email">email:</label>
         <input type="text" [(ngModel)]="cliente.email" class="form-control" id="email" name="email">
@@ -18,19 +23,10 @@
       </div>
       
       <div class="form-group col-md-4">
-        <label name="cep">CEP:</label>
-        <input type="text" [(ngModel)]="cliente.cep"class="form-control" id="cep" name="cep">
+        <label name="senha">Senha:</label>
+        <input type="password" [(ngModel)]="cliente.senha" class="form-control" id="senha" name="senha">
       </div>
       
-      <div class="form-group col-md-4 ">
-        <label name="celular">Celular:</label>
-        <input type="text" [(ngModel)]="cliente.celular" class="form-control" name="celular" id="celular">
-      </div>
-
-      <div class="form-group col-md-4 ">
-        <label name="telefone">Telefone:</label>
-        <input type="text" [(ngModel)]="cliente.telefone" class="form-control" name="telefone" id="telefone">
-      </div>
     </div>
     
     <hr />

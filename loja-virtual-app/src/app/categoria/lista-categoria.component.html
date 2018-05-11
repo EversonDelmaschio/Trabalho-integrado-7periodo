@@ -36,41 +36,43 @@
     </div>
  
     <div class="col-md-3">
-        <a routerLink="/categoria" class="btn btn-primary pull-right h2">Nova Categoria</a>
+        <a [routerLink]="['/categoria', 0]" class="btn btn-primary pull-right h2">Nova Categoria</a>
     </div>
   </div> <!-- /#top -->
 
   <hr />
   <div id="list" class="row">
- 
-    <div class="table-responsive col-md-12">
-        <table class="table table-striped" cellspacing="0" cellpadding="0">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <!--th>Lucro</th-->
-                    <th>Desconto</th>
-                    <th class="actions">Ações</th>
-                 </tr>
-            </thead>
-            <tbody>
- 
-                <tr *ngFor="let categoria of categorias">
-                    <td>{{categoria.id}}</td>
-                    <td>{{categoria.nome}}</td>
-                    <td>{{categoria.lucro}}</td>
-                    <td>{{categoria.desconto}}</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" routerLink="/view-produto">Visualizar</a>
-                        <a class="btn btn-warning btn-xs" routerLink="/categoria">Editar</a>
-                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                    </td>
-                </tr>
- 
-            </tbody>
-         </table>
- 
+    <div class="container-fluid">
+        <div class="table-responsive center col-md-12">
+            <table class="table table-striped" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr class="container">
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <!--th>Lucro</th-->
+                        <th>Desconto</th>
+                        <th class="actions">Ações</th>
+                     </tr>
+                </thead>
+                <tbody>
+     
+                    <tr class="container" *ngFor="let categoria of categorias">
+                        <td>{{categoria.id}}</td>
+                        <td>{{categoria.nome}}</td>
+                        <!--td>{{categoria.lucro}}</td-->
+                        <td>{{categoria.desconto}}</td>
+                        <td class="actions">
+                            <a class="btn btn-success btn-sm" [routerLink]="['/view-categoria', categoria.id]"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Visualizar</a>
+                            <a class="btn btn-warning btn-sm" [routerLink]="['/categoria', categoria.id]"><span class="
+glyphicon glyphicon-pencil"></span>&nbsp;Editar</a>
+                            <a class="btn btn-danger btn-sm"  href="#" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash"></span>&nbsp;Excluir</a>
+                        </td>
+                    </tr>
+     
+                </tbody>
+             </table>
+     
+         </div>
      </div>
  </div> <!-- /#list -->
 

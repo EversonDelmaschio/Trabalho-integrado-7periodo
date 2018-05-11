@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TemplateComponent } from './template/template.component';
 import { ProdutoComponent } from './produto/produto.component';
-import { ViewProdutoComponent } from './view-produto/view-produto.component';
+import { ViewProdutoComponent } from './produto/view-produto.component';
 import { ListaProdutoComponent } from './produto/lista-produto.component';
 import { routing } from './app.routing';
 import { ClienteComponent } from './cliente/cliente.component';
@@ -14,6 +14,11 @@ import { ListaClienteComponent } from './cliente/lista-cliente.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { HomeComponent } from './home/home.component';
 import { ListaCategoriaComponent } from './categoria/lista-categoria.component';
+import { FornecedorComponent } from './fornecedor/fornecedor.component';
+import { ViewCategoriaComponent } from './categoria/view-categoria.component';
+import { ViewClienteComponent } from './cliente/view-cliente.component';
+import { ListaFornecedorComponent } from './fornecedor/lista-fornecedor.component';
+import { ViewFornecedorComponent } from './fornecedor/view-fornecedor.component';
 
 
 @NgModule({
@@ -27,7 +32,12 @@ import { ListaCategoriaComponent } from './categoria/lista-categoria.component';
     ListaClienteComponent,
     CategoriaComponent,
     HomeComponent,
-    ListaCategoriaComponent
+    ListaCategoriaComponent,
+    FornecedorComponent,
+    ViewCategoriaComponent,
+    ViewClienteComponent,
+    ListaFornecedorComponent,
+    ViewFornecedorComponent
   ],
   imports: [
     BrowserModule,

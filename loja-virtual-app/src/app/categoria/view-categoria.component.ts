@@ -6,12 +6,12 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-categoria',
-  templateUrl: './categoria.component.html',
+  templateUrl: './view-categoria.component.html',
   providers: [CategoriaService],
-  styleUrls: ['./categoria.component.css']
+  styleUrls: ['./view-categoria.component.css']
 })
-export class CategoriaComponent implements OnInit {
-  id: number;
+export class ViewCategoriaComponent implements OnInit {
+id: number;
   sub: any;
   
   public categoria: Categoria;
@@ -19,6 +19,10 @@ export class CategoriaComponent implements OnInit {
   constructor(private http: Http, private categoriaService: CategoriaService, private route: ActivatedRoute) {
     this.categoria = new Categoria();
     
+  }
+  
+  deletar(){
+    this.categoriaService.delete(this.id);
   }
 
   ngOnInit() {
@@ -39,18 +43,5 @@ export class CategoriaComponent implements OnInit {
     }
   }
   
-  cadastrar(){
-    if(this.id == 0){
-      this.categoriaService.post({categoria: this.categoria}) .subscribe(c => {
-        console.log('categoria: ', c);
-      });
-    }
-    else{
-      this.categoriaService.put(this.id, {categoria: this.categoria}) .subscribe(c => {
-        console.log('categoria: ', c);
-      });
-      
-    }
-  }
 
 }
