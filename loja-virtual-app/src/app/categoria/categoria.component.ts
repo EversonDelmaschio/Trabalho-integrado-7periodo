@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from './categoria.model';
-import { CategoriaService } from './categoria.service';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
+import { Categoria } from './categoria.model';
+import { CategoriaService } from './categoria.service';
+
 
 @Component({
   selector: 'app-categoria',
