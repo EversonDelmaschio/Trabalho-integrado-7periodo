@@ -29,12 +29,12 @@ export class ServiceBase {
     }
 
     public post(_body: any): Observable<any> {
-        let body = JSON.stringify(_body);
+        const body = JSON.stringify(_body);
         return this.http.post(this.END_POINT_URL, body, this.getHeaders()).map(data => data.json());
     }
 
     public put(id: any, obj: any): Observable<any> {
-        let body = JSON.stringify(obj);
+        const body = JSON.stringify(obj);
         return this.http.put(this.END_POINT_URL + '/' + id, body, this.getHeaders()).map(data => data.json());
     }
 
@@ -50,12 +50,11 @@ export class ServiceBase {
     public getHeaders(): RequestOptions {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         // if (includeToken && loginService.estaLogado()) {
-        //     const token = loginService.getTokenAtual();
-        //     //headers.append('Authorization', 'Bearer ' + token);
-        //     headers.append('Authorization', token);
+        const token = localStorage.getItem('token');
+        headers.append('Authorization', 'Bearer ' + token);
+        // headers.append('Authorization', token);
         // }
         const options = new RequestOptions({headers: headers});
         return options;
     }
-
 }

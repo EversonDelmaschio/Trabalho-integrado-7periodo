@@ -16,34 +16,39 @@ export class ClienteComponent implements OnInit {
   sub: any;
 
   public cliente: Cliente;
-  
 
-  constructor(private http: Http, private clienteService: ClienteService,  private route: ActivatedRoute) { 
+  constructor(private http: Http, private clienteService: ClienteService,  private route: ActivatedRoute) {
     this.cliente = new Cliente();
   }
 
   ngOnInit() {
-    this.sub== this.route.params.subscribe(params => {
-       this.id = +params['id']; // (+) converts string 'id' to a number
-
-       // In a real app: dispatch action to load the details here.
+    this.sub = this.route.params.subscribe(params => {
+       this.id = +params['id'];
+       if (this.id) {
+         this.carregar();
+       }
     });
-    
-    if(this.id > 0){
-      this.clienteService.getById(this.id)
-      .subscribe(
-      _cliente => {
-        this.cliente = _cliente;
-        console.log(this.cliente);
-    });
-    }
   }
-  
+
+  carregar() {
+    this.clienteService.getById(this.id)
+        .subscribe(_cliente => {
+          this.cliente = _cliente;
+      });
+  }
+
   cadastrar() {
-    this.clienteService.post({cliente: this.cliente})
-    .subscribe(c => {
-      console.log('Cliente: ', c);
-    });
+    if (this.id > 0) {
+      this.clienteService.put(this.id, {cliente: this.cliente})
+      .subscribe(c => {
+        console.log('Cliente atualizado!', c);
+      });
+    } else {
+      this.clienteService.post({cliente: this.cliente})
+      .subscribe(c => {
+        console.log('Cliente criado: ', c);
+      });
+    }
   }
 
 }

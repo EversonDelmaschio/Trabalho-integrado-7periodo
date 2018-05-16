@@ -4,7 +4,7 @@ import { ViewProdutoComponent } from './produto/view-produto.component';
 import { ListaProdutoComponent } from './produto/lista-produto.component';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { ClienteComponent } from './cliente/cliente.component';
-import { ViewClienteComponent } from  './cliente/view-cliente.component';
+import { ViewClienteComponent } from './cliente/view-cliente.component';
 import { ListaClienteComponent } from './cliente/lista-cliente.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { HomeComponent } from './home/home.component';
