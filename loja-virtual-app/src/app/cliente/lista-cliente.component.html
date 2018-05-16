@@ -26,7 +26,7 @@
  
     <div class="col-md-6">
         <div class="input-group h2">
-            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
+            <input name="data[search]" class="form-control" id="search" type="text" [(ngModel)]="filtroNome" (ngModelChange)="buscar()" placeholder="Pesquisar clientes">
             <span class="input-group-btn">
                 <button class="btn btn-primary" type="submit">
                     <span class="glyphicon glyphicon-search"></span>
@@ -49,14 +49,14 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>sobrenome</th>
-                    <th>email</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
                     <th class="actions">Ações</th>
                  </tr>
             </thead>
             <tbody>
                 
-                <tr *ngFor="let cliente of clientes">
+                <tr *ngFor="let cliente of listaFiltrada">
                     <td>{{cliente.id}}</td>
                     <td>{{cliente.nome}}</td>
                     <td>{{cliente.sobrenome}}</td>

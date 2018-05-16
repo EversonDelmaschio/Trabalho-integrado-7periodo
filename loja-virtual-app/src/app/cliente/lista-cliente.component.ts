@@ -10,18 +10,33 @@ import { ClienteService } from './cliente.service';
 export class ListaClienteComponent implements OnInit {
   
   public clientes: Array<any>;
+  public listaFiltrada = [];
+  public filtroNome = "";
   
   constructor(private clienteService: ClienteService) { 
     
   }
 
   ngOnInit() {
-    
+    this.carregar();
+  }
+  
+  public carregar(){
     this.clienteService.getAll().subscribe(
       _clientes => {
         this.clientes = _clientes;
-        console.log(this.clientes);
-    })
+        this.listaFiltrada = _clientes;
+    });
+  }
+  
+  public buscar(){
+    if(this.filtroNome){
+      this.listaFiltrada = this.clientes.filter(c => {
+        return c.nome.toLowerCase().includes(this.filtroNome.toLowerCase());
+      });
+    }else{
+      this.carregar();
+    }
   }
 
 }

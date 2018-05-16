@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Produto } from './produto.model';
 import { ProdutoService } from './produto.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriaService } from '../categoria/categoria.service'; 
 
 @Component({
@@ -17,8 +17,13 @@ export class ProdutoComponent implements OnInit {
   public categorias = [];
   id: number;
   sub: any;
+  public categoriaId = 1;
 
-  constructor(private http: Http, private produtoService: ProdutoService, private route: ActivatedRoute, private  categoriaService: CategoriaService) {
+  constructor(private http: Http, private produtoService: ProdutoService, 
+              private route: ActivatedRoute,
+              private categoriaService: CategoriaService,
+              private router: Router
+              ) {
    this.produto = new Produto();
 
   }
@@ -38,7 +43,6 @@ export class ProdutoComponent implements OnInit {
       .subscribe(
         _produto => {
           this.produto = _produto;
-          console.log(this.produto);
       });
     }
     
@@ -49,20 +53,28 @@ export class ProdutoComponent implements OnInit {
   
 
   cadastrar(){
-    this.produto.categoria = 1;
+    //this.produto.categoria = 1;
     if(this.id == 0){
       this.produtoService.post({produto: this.produto})
       .subscribe(p => {
-        console.log('Produto: ', p);
+        this.produto = new Produto();
       });
+      alert("Produto cadastrado!");
     }
     else{
       this.produtoService.put(this.id, {produto: this.produto})
       .subscribe(p => {
-        console.log('Produto: ', p);
+        this.router.navigate(['lista-produto']);
       });
     }
       
+  }
+  
+  public selecionar(item: any){
+    this.categoriaId = item.target.value;
+    if(this.categoriaId){
+      this.produto.categoria = this.categoriaId;
     }
+  }
 
 }

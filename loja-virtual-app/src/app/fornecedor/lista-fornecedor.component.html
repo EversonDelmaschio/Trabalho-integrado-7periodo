@@ -10,7 +10,7 @@
           </div>
           <div class="modal-body">Deseja realmente excluir este Fornecedor? </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Sim</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="excluir()">Sim</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
           </div>
       </div>
@@ -50,7 +50,7 @@
                     <th>ID</th>
                     <th>Razão Social</th>
                     <th>CNPJ</th>
-                    <th>E-mail</th>
+                    <th>Email</th>
                     <th>Telefone</th>
                     <th class="actions">Ações</th>
                  </tr>
@@ -59,13 +59,14 @@
                 
                 <tr *ngFor="let fornecedor of fornecedores">
                     <td>{{fornecedor.id}}</td>
-                    <td>{{fornecedor.nome}}</td>
-                    <td>{{fornecedor.sobrenome}}</td>
+                    <td>{{fornecedor.razaoSocial}}</td>
+                    <td>{{fornecedor.cnpj}}</td>
                     <td>{{fornecedor.email}}</td>
+                    <td>{{fornecedor.telefone}}</td>
                     <td class="actions">
                         <a class="btn btn-success btn-xs" [routerLink]="['/view-fornecedor', fornecedor.id]">Visualizar</a>
                         <a class="btn btn-warning btn-xs" [routerLink]="['/fornecedor', fornecedor.id]">Editar</a>
-                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                        <a class="btn btn-danger btn-xs" (click)="marcarParaExcluir(fornecedor)" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                     </td>
                 </tr>
  

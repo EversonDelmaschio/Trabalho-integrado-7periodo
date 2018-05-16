@@ -10,17 +10,48 @@ import { CategoriaService } from './categoria.service';
 export class ListaCategoriaComponent implements OnInit {
   
   public categorias: Array<any>;
+  public listaFiltrada = [];
+  public paraExcluir: any;
+  public filtroNomeCategoria: string = "";
   
   constructor(private categoriaService: CategoriaService ) { 
     
   }
 
   ngOnInit() {
+    this.carregar();
+  }
+  
+  public carregar(){
     this.categoriaService.getAll().subscribe(
       _categorias => {
         this.categorias = _categorias;
-        console.log(this.categorias);
+        this.listaFiltrada = _categorias;
     });
+  }
+  
+  
+  public excluir(){
+    if(this.paraExcluir){
+      this.categoriaService.delete(this.paraExcluir.id)
+        .subscribe(deletado => {
+          this.carregar();
+        });
+    }
+  }
+  
+  public marcarParaExcluir(item: any){
+    this.paraExcluir = item;
+  }
+  
+  public buscar(){
+    if(this.filtroNomeCategoria){
+      this.listaFiltrada = this.categorias.filter(c => {
+        return c.nome.toLowerCase().includes(this.filtroNomeCategoria.toLowerCase());
+      });
+    }else{
+      this.carregar();
+    }
   }
 
 }

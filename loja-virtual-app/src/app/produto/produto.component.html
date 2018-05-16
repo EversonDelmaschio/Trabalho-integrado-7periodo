@@ -1,6 +1,6 @@
 <app-template></app-template>
 <div id="main" class="container">
-  <h3 class="page-header">Adicionar Item:</h3>
+  <h3 class="page-header">Adicionar Produto:</h3>
   <form (ngSubmit)="cadastrar()">
     <!-- area de campos do form -->
     <div class="row">
@@ -29,16 +29,16 @@
     </div>
 
     <div class="form-group">
-      <label for="comboCategorias">Example select</label>
-      <select class="form-control" id="comboCategorias">
-        <option *ngFor="let item of categorias" value="item.id">{{item.nome}}</option>
+      <label for="comboCategorias">Categoria</label>
+      <select class="form-control" id="comboCategorias" (change)="selecionar($event)">
+        <option *ngFor="let item of categorias" value="{{item.id}}" [selected]="item.id == produto.categoria">{{item.nome}}</option>
       </select>
     </div>
     <hr />
     <div id="actions" class="row">
       <div class="col-md-12">
         <button type="submit" class="btn btn-primary">Salvar</button>
-        <a routerLink="/lista-produto" class="btn btn-default">Cancelar</a>
+        <a routerLink="/lista-produto" class="btn btn-default">Voltar</a>
       </div> 
     </div>
   </form>

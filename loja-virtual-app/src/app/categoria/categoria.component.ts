@@ -45,6 +45,7 @@ export class CategoriaComponent implements OnInit {
       this.categoriaService.post({categoria: this.categoria}) .subscribe(c => {
         console.log('categoria: ', c);
       });
+      alert("Categoria Cadastrada!");
     }
     else{
       this.categoriaService.put(this.id, {categoria: this.categoria}) .subscribe(c => {

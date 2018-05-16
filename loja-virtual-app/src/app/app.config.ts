@@ -1,11 +1,11 @@
-export class AppConfig{
-    public static AMBIENTE: string = 'dev';
+export class AppConfig {
+    public static AMBIENTE = 'dev';
 
     public static BASE_URL(): string {
-        if(this.AMBIENTE == 'dev'){
+        if (this.AMBIENTE === 'dev') {
+            return 'http://localhost:1337/';
+        } else {
             return 'https://loja-virtual-api.herokuapp.com/';
-        }else{
-            return 'retornar a url de produção aqui ...';
         }
     }
 }

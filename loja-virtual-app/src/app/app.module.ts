@@ -19,6 +19,9 @@ import { ViewCategoriaComponent } from './categoria/view-categoria.component';
 import { ViewClienteComponent } from './cliente/view-cliente.component';
 import { ListaFornecedorComponent } from './fornecedor/lista-fornecedor.component';
 import { ViewFornecedorComponent } from './fornecedor/view-fornecedor.component';
+import { ProdutoDescricaoPipe } from './produto/produto-descricao.pipe';
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -37,12 +40,15 @@ import { ViewFornecedorComponent } from './fornecedor/view-fornecedor.component'
     ViewCategoriaComponent,
     ViewClienteComponent,
     ListaFornecedorComponent,
-    ViewFornecedorComponent
+    ViewFornecedorComponent,
+    LoginComponent,
+    ProdutoDescricaoPipe
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
+    RouterModule,
     routing
   ],
   exports: [

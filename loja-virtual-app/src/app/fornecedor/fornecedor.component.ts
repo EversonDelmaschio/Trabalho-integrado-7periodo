@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FornecedorService  } from './fornecedor.service';
 import { Fornecedor } from './fornecedor.model';
 import { Http, RequestOptions, Headers } from '@angular/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-fornecedor',
@@ -15,7 +15,8 @@ export class FornecedorComponent implements OnInit {
   sub: any;
   public fornecedor: Fornecedor;
   
-  constructor( private http: Http, private fornecedorService: FornecedorService, private route: ActivatedRoute ) { 
+  constructor( private http: Http, private fornecedorService: FornecedorService, private route: ActivatedRoute,
+              private router: Router) { 
     this.fornecedor = new Fornecedor();
   }
 
@@ -39,11 +40,14 @@ export class FornecedorComponent implements OnInit {
   
   cadastrar(){
     if(this.id == 0){
-      this.fornecedorService.post({fornecedor: this.fornecedor}).subscribe(f=>{console.log('fornecedor: ', f)});
+      this.fornecedorService.post({fornecedor: this.fornecedor}).subscribe(f=>{
+        this.fornecedor = new Fornecedor();
+      });
     }
     else{
       this.fornecedorService.put(this.id, {fornecedor: this.fornecedor})
       .subscribe(f => {
+        this.router.navigate(['lista-fornecedor']);
         console.log('fornecedor: ', f);
       });
     }

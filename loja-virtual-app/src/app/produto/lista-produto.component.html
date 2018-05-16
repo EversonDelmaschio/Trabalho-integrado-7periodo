@@ -10,7 +10,7 @@
           </div>
           <div class="modal-body">Deseja realmente excluir este item? </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Sim</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="excluir()">Sim</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
           </div>
       </div>
@@ -21,12 +21,12 @@
 <div id="main" class="container-fluid">
   <div id="top" class="row">
     <div class="col-md-3">
-        <h2>Itens</h2>
+        <h2>Produtos</h2>
     </div>
  
     <div class="col-md-6">
         <div class="input-group h2">
-            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
+            <input name="data[search]" class="form-control" id="search" type="text" [(ngModel)]="filtroNomeProduto" (ngModelChange)="buscar()" placeholder="Pesquisar produtos">
             <span class="input-group-btn">
                 <button class="btn btn-primary" type="submit">
                     <span class="glyphicon glyphicon-search"></span>
@@ -36,7 +36,7 @@
     </div>
  
     <div class="col-md-3">
-        <a [routerLink]="['/produto', 0]" class="btn btn-primary pull-right h2">Novo Item</a>
+        <a [routerLink]="['/produto', 0]" class="btn btn-primary pull-right h2">Novo Produto</a>
     </div>
   </div> <!-- /#top -->
 
@@ -50,13 +50,13 @@
                     <th>Nome</th>
                     <th>Categoria</th>
                     <th>Estoque</th>
-                    <th>Venda</th>
+                    <th>Custo</th>
                     <th class="actions">Ações</th>
                  </tr>
             </thead>
             <tbody>
  
-                <tr *ngFor="let produto of produtos">
+                <tr *ngFor="let produto of listaFiltrada">
                     <td>{{produto.id}}</td>
                     <td>{{produto.nome}}</td>
                     <td>{{produto.categoria}}</td>
@@ -65,7 +65,7 @@
                     <td class="actions">
                         <a class="btn btn-success btn-xs" [routerLink]="['/view-produto', produto.id]">Visualizar</a>
                         <a class="btn btn-warning btn-xs" [routerLink]="['/produto', produto.id]" >Editar</a>
-                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                        <a class="btn btn-danger btn-xs" (click)="marcarParaExcluir(produto)" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                     </td>
                 </tr>
  

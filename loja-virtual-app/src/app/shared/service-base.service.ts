@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { Http, RequestOptions, Headers } from "@angular/http";
-import { Router } from "@angular/router";
-import { Observable } from "rxjs/Observable";
-import { AppConfig } from "../app.config";
+import { Injectable } from '@angular/core';
+import { Http, RequestOptions, Headers } from '@angular/http';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { AppConfig } from '../app.config';
 import 'rxjs/add/operator/map';
 
 
@@ -16,21 +16,20 @@ export class ServiceBase {
         protected http: Http,
         protected router: Router,
         protected tipo: string
-    ){
+    ) {
         this.END_POINT_URL = AppConfig.BASE_URL() + this.tipo;
     }
 
-    public getAll(): Observable<any>{
+    public getAll(): Observable<any> {
         return this.http.get(this.END_POINT_URL).map(data => data.json());
     }
 
-    public getById(id: any): Observable<any>{
+    public getById(id: any): Observable<any> {
         return this.http.get(this.END_POINT_URL + '/' + id).map(data => data.json());
     }
 
-    public post(_body: any): Observable<any>{
+    public post(_body: any): Observable<any> {
         let body = JSON.stringify(_body);
-        console.log("Stringify: ", body);
         return this.http.post(this.END_POINT_URL, body, this.getHeaders()).map(data => data.json());
     }
 
@@ -39,8 +38,13 @@ export class ServiceBase {
         return this.http.put(this.END_POINT_URL + '/' + id, body, this.getHeaders()).map(data => data.json());
     }
 
-    public delete(id: any): Observable<any>{
+    public delete(id: any): Observable<any> {
         return this.http.delete(this.END_POINT_URL + '/' + id).map(data => data.json());
+    }
+
+    public postAny(path: string, obj: any): Observable<any> {
+        const body = JSON.stringify(obj);
+        return this.http.post(this.END_POINT_URL + '/' + path, body, this.getHeaders()).map(data => data.json());
     }
 
     public getHeaders(): RequestOptions {

@@ -1,5 +1,5 @@
 export class Fornecedor{
-    razao_social: string;
+    razaoSocial: string;
     email: string;
     cnpj: string;
     celular: string;

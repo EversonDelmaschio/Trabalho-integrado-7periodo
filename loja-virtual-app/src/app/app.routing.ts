@@ -11,13 +11,15 @@ import { HomeComponent } from './home/home.component';
 import { ListaCategoriaComponent} from './categoria/lista-categoria.component';
 import { ViewCategoriaComponent } from './categoria/view-categoria.component';
 import { FornecedorComponent } from './fornecedor/fornecedor.component';
-import { ViewFornecedorComponent } from  './fornecedor/view-fornecedor.component';
+import { ViewFornecedorComponent } from './fornecedor/view-fornecedor.component';
 import { ListaFornecedorComponent } from './fornecedor/lista-fornecedor.component';
+import { LoginComponent } from './login/login.component';
 
 
 
 const APP_ROUTES: Routes = [
     {path: '', component: HomeComponent },
+    {path: 'login', component: LoginComponent},
     {path: 'produto/:id', component: ProdutoComponent},
     {path: 'view-produto/:id', component: ViewProdutoComponent },
     {path: 'lista-produto', component: ListaProdutoComponent },
