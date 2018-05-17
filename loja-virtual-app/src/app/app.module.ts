@@ -22,6 +22,8 @@ import { ViewFornecedorComponent } from './fornecedor/view-fornecedor.component'
 import { ProdutoDescricaoPipe } from './produto/produto-descricao.pipe';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 
 @NgModule({
@@ -56,7 +58,7 @@ import { LoginComponent } from './login/login.component';
     ViewProdutoComponent,
     ListaProdutoComponent
   ],
-  providers: [],
+  providers: [LoginService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

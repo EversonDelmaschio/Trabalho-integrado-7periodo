@@ -47,6 +47,10 @@ export class ServiceBase {
         return this.http.post(this.END_POINT_URL + '/' + path, body, this.getHeaders()).map(data => data.json());
     }
 
+    public getAny(path: string): Observable<any> {
+        return this.http.get(this.END_POINT_URL + '/' + path, this.getHeaders()).map(data => data.json());
+    }
+
     public getHeaders(): RequestOptions {
         const headers = new Headers({ 'Content-Type': 'application/json' });
         // if (includeToken && loginService.estaLogado()) {

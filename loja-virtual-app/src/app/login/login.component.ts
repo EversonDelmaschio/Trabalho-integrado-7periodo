@@ -13,6 +13,7 @@ import { Cliente } from '../cliente/cliente.model';
 export class LoginComponent implements OnInit {
 
   public senhaInvalida = false;
+  public integracao = false;
   public user: Cliente = new Cliente();
 
   constructor(private loginService: LoginService,
@@ -20,9 +21,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-    console.log('Login Component!!');
-  }
+  ngOnInit() {}
 
   login() {
     if (this.user.email && this.user.senha) {
@@ -30,7 +29,7 @@ export class LoginComponent implements OnInit {
         .subscribe(auth => {
           if (auth.sucesso) {
             localStorage.setItem('token', auth.token);
-            localStorage.setItem('userId', auth.user.id);
+            localStorage.setItem('user', auth.user);
             this.router.navigate(['']);
           }
     });

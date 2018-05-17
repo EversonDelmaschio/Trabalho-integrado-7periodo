@@ -15,4 +15,17 @@ export class LoginService extends ServiceBase {
         return this.postAny('login', {email: email, senha: senha});
     }
 
+    public logout() {
+        localStorage.removeItem('token');
+        this.router.navigate(['/login']);
+    }
+
+    public getUserInfo() {
+        return JSON.parse(localStorage.getItem('user'));
+    }
+
+    public verifyToken(): Observable<any> {
+        return this.getAny('token').map(data => data.sucesso);
+    }
+
 }

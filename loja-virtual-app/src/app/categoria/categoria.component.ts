@@ -14,44 +14,40 @@ import { CategoriaService } from './categoria.service';
 export class CategoriaComponent implements OnInit {
   id: number;
   sub: any;
-  
+
   public categoria: Categoria;
 
   constructor(private http: Http, private categoriaService: CategoriaService, private route: ActivatedRoute) {
     this.categoria = new Categoria();
-    
   }
 
   ngOnInit() {
-    
-    this.sub== this.route.params.subscribe(params => {
+    this.sub = this.route.params.subscribe(params => {
        this.id = +params['id']; // (+) converts string 'id' to a number
-
-       // In a real app: dispatch action to load the details here.
+       if (this.id) {
+        this.carregar();
+      }
     });
-    
-    if(this.id > 0){
-      this.categoriaService.getById(this.id)
+  }
+
+  carregar() {
+    this.categoriaService.getById(this.id)
       .subscribe(
       _categoria => {
         this.categoria = _categoria;
-        console.log(this.categoria);
     });
-    }
   }
-  
-  cadastrar(){
-    if(this.id == 0){
+
+  cadastrar() {
+    if (this.id === 0) {
       this.categoriaService.post({categoria: this.categoria}) .subscribe(c => {
-        console.log('categoria: ', c);
+        alert('Categoria Cadastrada!');
       });
-      alert("Categoria Cadastrada!");
-    }
-    else{
+    } else {
       this.categoriaService.put(this.id, {categoria: this.categoria}) .subscribe(c => {
+        alert('Categoria Atualizada!');
         console.log('categoria: ', c);
       });
-      
     }
   }
 

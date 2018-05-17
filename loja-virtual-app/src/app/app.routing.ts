@@ -14,24 +14,25 @@ import { FornecedorComponent } from './fornecedor/fornecedor.component';
 import { ViewFornecedorComponent } from './fornecedor/view-fornecedor.component';
 import { ListaFornecedorComponent } from './fornecedor/lista-fornecedor.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 
 
 const APP_ROUTES: Routes = [
-    {path: '', component: HomeComponent },
     {path: 'login', component: LoginComponent},
-    {path: 'produto/:id', component: ProdutoComponent},
-    {path: 'view-produto/:id', component: ViewProdutoComponent },
-    {path: 'lista-produto', component: ListaProdutoComponent },
-    {path: 'cliente/:id', component: ClienteComponent},
-    {path: 'view-cliente/:id', component: ViewClienteComponent},
-    {path: 'lista-cliente', component: ListaClienteComponent},
-    {path: 'categoria/:id', component: CategoriaComponent },
-    {path: 'lista-categoria',  component: ListaCategoriaComponent},
-    {path: 'view-categoria/:id', component: ViewCategoriaComponent},
-    {path: 'fornecedor/:id', component: FornecedorComponent},
-    {path: 'lista-fornecedor', component: ListaFornecedorComponent},
-    {path: 'view-fornecedor/:id', component: ViewFornecedorComponent}
+    {path: '', component: HomeComponent, canActivate: [AuthGuardService] },
+    {path: 'produto/:id', component: ProdutoComponent, canActivate: [AuthGuardService] },
+    {path: 'view-produto/:id', component: ViewProdutoComponent, canActivate: [AuthGuardService]  },
+    {path: 'lista-produto', component: ListaProdutoComponent, canActivate: [AuthGuardService]  },
+    {path: 'cliente/:id', component: ClienteComponent, canActivate: [AuthGuardService] },
+    {path: 'view-cliente/:id', component: ViewClienteComponent, canActivate: [AuthGuardService] },
+    {path: 'lista-cliente', component: ListaClienteComponent, canActivate: [AuthGuardService] },
+    {path: 'categoria/:id', component: CategoriaComponent, canActivate: [AuthGuardService]  },
+    {path: 'lista-categoria',  component: ListaCategoriaComponent, canActivate: [AuthGuardService] },
+    {path: 'view-categoria/:id', component: ViewCategoriaComponent, canActivate: [AuthGuardService] },
+    {path: 'fornecedor/:id', component: FornecedorComponent, canActivate: [AuthGuardService] },
+    {path: 'lista-fornecedor', component: ListaFornecedorComponent, canActivate: [AuthGuardService] },
+    {path: 'view-fornecedor/:id', component: ViewFornecedorComponent, canActivate: [AuthGuardService] }
 
 ];
 
