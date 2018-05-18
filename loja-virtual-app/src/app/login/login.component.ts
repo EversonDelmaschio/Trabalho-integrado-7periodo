@@ -3,6 +3,7 @@ import { LoginService } from './login.service';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { Cliente } from '../cliente/cliente.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private loginService: LoginService,
     private http: Http,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {}
@@ -31,10 +33,12 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('token', auth.token);
             localStorage.setItem('user', auth.user);
             this.router.navigate(['']);
+          } else {
+            this.toastr.error('Login ou senha inválidos', 'Erro!');
           }
     });
     } else {
-      console.log('Email ou senha vazios ...');
+      this.toastr.error('Preencha os campos login e senha', 'Erro!');
     }
   }
 

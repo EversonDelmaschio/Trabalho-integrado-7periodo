@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
 import { TemplateComponent } from './template/template.component';
@@ -51,6 +54,9 @@ import { AuthGuardService } from './guards/auth-guard.service';
     HttpModule,
     FormsModule,
     RouterModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     routing
   ],
   exports: [
@@ -58,7 +64,7 @@ import { AuthGuardService } from './guards/auth-guard.service';
     ViewProdutoComponent,
     ListaProdutoComponent
   ],
-  providers: [LoginService, AuthGuardService],
+  providers: [LoginService, AuthGuardService, ToastrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

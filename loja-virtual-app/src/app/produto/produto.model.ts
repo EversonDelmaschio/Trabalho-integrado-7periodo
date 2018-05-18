@@ -4,5 +4,7 @@ export class Produto {
     quantidade: number; // required
     destaque: boolean;
     custo: number; // required
+    venda: number; // required
+    tamanho: string;
     categoria: any;
 }

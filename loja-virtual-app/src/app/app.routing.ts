@@ -32,7 +32,8 @@ const APP_ROUTES: Routes = [
     {path: 'view-categoria/:id', component: ViewCategoriaComponent, canActivate: [AuthGuardService] },
     {path: 'fornecedor/:id', component: FornecedorComponent, canActivate: [AuthGuardService] },
     {path: 'lista-fornecedor', component: ListaFornecedorComponent, canActivate: [AuthGuardService] },
-    {path: 'view-fornecedor/:id', component: ViewFornecedorComponent, canActivate: [AuthGuardService] }
+    {path: 'view-fornecedor/:id', component: ViewFornecedorComponent, canActivate: [AuthGuardService] },
+    {path: '**', redirectTo: 'login'}
 
 ];
 
