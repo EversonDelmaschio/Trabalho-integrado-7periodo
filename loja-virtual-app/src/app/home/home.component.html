@@ -1,14 +1,14 @@
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!------ Include the above in your HEAD tag ---------->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>---- Include the above in your HEAD tag -------- -->
 
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
 
-<div class="nav-side-menu">
+<!-- <div class="nav-side-menu">
     <div class="brand">Bem vindo, {{getUserName()}} | 
       <span style="cursor: pointer;" class="glyphicon glyphicon-log-out" (click)="logout()"></span>
     </div>
@@ -36,4 +36,33 @@
                 </li>
             </ul>
      </div>
-</div>
+</div> -->
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Cantinho das Meninas</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a routerLink="/lista-produto">Produtos</a></li>
+          <li><a routerLink="/lista-categoria">Categorias</a></li>
+          <li><a routerLink="/lista-cliente">Clientes</a></li>
+          <li><a routerLink="/lista-fornecedor">Fornecedores</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Relatórios</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+      <li><a (click)="logout()" style="cursor: pointer;"><span class="glyphicon glyphicon-log-in"></span> {{getUserName()}}</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<!-- <div class="container">
+  <h3>Right Aligned Navbar</h3>
+  <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+</div> -->
