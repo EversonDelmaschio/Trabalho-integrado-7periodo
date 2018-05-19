@@ -41,16 +41,16 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Cantinho das Meninas</a>
+      <a class="navbar-brand" routerLink="/admin">Cantinho das Meninas</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros <span class="caret"></span></a>
+      <li class="active"><a routerLink="/admin">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown">Cadastros <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a routerLink="/lista-produto">Produtos</a></li>
-          <li><a routerLink="/lista-categoria">Categorias</a></li>
-          <li><a routerLink="/lista-cliente">Clientes</a></li>
-          <li><a routerLink="/lista-fornecedor">Fornecedores</a></li>
+          <li><a routerLink="lista-produto">Produtos</a></li>
+          <li><a routerLink="lista-categoria">Categorias</a></li>
+          <li><a routerLink="lista-cliente">Clientes</a></li>
+          <li><a routerLink="lista-fornecedor">Fornecedores</a></li>
         </ul>
       </li>
       <li><a href="#">Relatórios</a></li>
@@ -66,3 +66,4 @@
   <h3>Right Aligned Navbar</h3>
   <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
 </div> -->
+<router-outlet></router-outlet>

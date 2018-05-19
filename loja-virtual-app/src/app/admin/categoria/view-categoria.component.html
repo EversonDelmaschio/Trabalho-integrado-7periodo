@@ -1,5 +1,5 @@
 <!-- <app-template></app-template> -->
-<app-home></app-home>
+<!-- <app-home></app-home> -->
 
 <div id="main" class="container-fluid">
   <h3 class="page-header">Visualizar Categoria #{{ categoria.id }}</h3>
@@ -46,8 +46,8 @@
  <hr />
 <div id="actions" class="row">
  <div class="col-md-12">
-  <a [routerLink]="['/categoria', categoria.id]" class="btn btn-primary">Editar</a>
-  <a routerLink="/lista-categoria" class="btn btn-default">Voltar</a>
+  <a [routerLink]="['/admin/categoria', categoria.id]" class="btn btn-primary">Editar</a>
+  <a routerLink="/admin/lista-categoria" class="btn btn-default">Voltar</a>
   <a href="#" class="btn btn-default" data-toggle="modal" data-target="#delete-modal">Excluir</a>
  </div>
 </div>

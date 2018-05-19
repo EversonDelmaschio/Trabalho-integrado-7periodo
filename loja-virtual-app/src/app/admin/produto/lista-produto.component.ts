@@ -13,31 +13,32 @@ export class ListaProdutoComponent implements OnInit {
   public produtos: Array<any>;
   public listaFiltrada = [];
   public paraExcluir: any;
-  public filtroNomeProduto: string = "";
+  public filtroNomeProduto = '';
   public categorias: Array<any>;
   public categoriaAtual: any;
 
   constructor(private produtoService: ProdutoService, private categoriaService: CategoriaService) { }
 
   ngOnInit() {
+    console.log('Lista Produto Component');
     this.carregar();
   }
-  
+
   public carregar() {
     this.produtoService.getAll()
-    .subscribe(
-      _produtos => {
-        this.produtos = _produtos;
-        this.listaFiltrada = _produtos;
-    });
+      .subscribe(
+        _produtos => {
+          this.produtos = _produtos;
+          this.listaFiltrada = _produtos;
+        });
     this.categoriaService.getAll().subscribe(
       _categorias => {
         this.categorias = _categorias;
-    });
+      });
   }
-  
-  public excluir(){
-    if(this.paraExcluir){
+
+  public excluir() {
+    if (this.paraExcluir) {
       this.produtoService.delete(this.paraExcluir.id)
         .subscribe(deletado => {
           this.carregar();
@@ -45,19 +46,19 @@ export class ListaProdutoComponent implements OnInit {
         });
     }
   }
-  
-  public marcarParaExcluir(produto: any){
+
+  public marcarParaExcluir(produto: any) {
     this.paraExcluir = produto;
   }
-  
-  public buscar(){
-    if(this.filtroNomeProduto){
+
+  public buscar() {
+    if (this.filtroNomeProduto) {
       this.listaFiltrada = this.produtos.filter(x => {
         return x.nome.toLowerCase().includes(this.filtroNomeProduto.toLowerCase());
       });
-    }else{
+    } else {
       this.carregar();
     }
   }
-  
+
 }

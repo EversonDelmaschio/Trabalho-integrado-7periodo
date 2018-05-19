@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private loginService: LoginService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    console.log('Home Component');
   }
 
   public logout() {

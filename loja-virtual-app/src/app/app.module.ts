@@ -7,45 +7,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
-import { TemplateComponent } from './template/template.component';
-import { ProdutoComponent } from './produto/produto.component';
-import { ViewProdutoComponent } from './produto/view-produto.component';
-import { ListaProdutoComponent } from './produto/lista-produto.component';
+import { TemplateComponent } from './admin/template/template.component';
 import { routing } from './app.routing';
-import { ClienteComponent } from './cliente/cliente.component';
-import { ListaClienteComponent } from './cliente/lista-cliente.component';
-import { CategoriaComponent } from './categoria/categoria.component';
-import { HomeComponent } from './home/home.component';
-import { ListaCategoriaComponent } from './categoria/lista-categoria.component';
-import { FornecedorComponent } from './fornecedor/fornecedor.component';
-import { ViewCategoriaComponent } from './categoria/view-categoria.component';
-import { ViewClienteComponent } from './cliente/view-cliente.component';
-import { ListaFornecedorComponent } from './fornecedor/lista-fornecedor.component';
-import { ViewFornecedorComponent } from './fornecedor/view-fornecedor.component';
-import { ProdutoDescricaoPipe } from './produto/produto-descricao.pipe';
+import { HomeComponent } from './admin/home/home.component';
+import { ProdutoDescricaoPipe } from './admin/produto/produto-descricao.pipe';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { LoginService } from './login/login.service';
-import { AuthGuardService } from './guards/auth-guard.service';
+import { LoginComponent } from './admin/login/login.component';
+import { LoginService } from './admin/login/login.service';
+import { AuthGuardService } from './admin/guards/auth-guard.service';
+import { ProdutoModule } from './admin/produto/produto.module';
+import { HomeModule } from './admin/home/home.module';
+import { CategoriaModule } from './admin/categoria/categoria.module';
+import { FornecedorModule } from './admin/fornecedor/fornecedor.module';
+import { ClienteModule } from './admin/cliente/cliente.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateComponent,
-    ProdutoComponent,
-    ViewProdutoComponent,
-    ListaProdutoComponent,
-    ClienteComponent,
-    ListaClienteComponent,
-    CategoriaComponent,
-    HomeComponent,
-    ListaCategoriaComponent,
-    FornecedorComponent,
-    ViewCategoriaComponent,
-    ViewClienteComponent,
-    ListaFornecedorComponent,
-    ViewFornecedorComponent,
     LoginComponent,
     ProdutoDescricaoPipe
   ],
@@ -57,13 +37,14 @@ import { AuthGuardService } from './guards/auth-guard.service';
     CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    routing
+    routing,
+    ProdutoModule,
+    CategoriaModule,
+    FornecedorModule,
+    ClienteModule,
+    HomeModule
   ],
-  exports: [
-    ProdutoComponent,
-    ViewProdutoComponent,
-    ListaProdutoComponent
-  ],
+  exports: [],
   providers: [LoginService, AuthGuardService, ToastrService],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 <!-- <app-template></app-template> -->
-<app-home></app-home>
+<!-- <app-home></app-home> -->
 <div id="main" class="container-fluid">
   <h3 class="page-header">Visualizar Fornecedor #{{ fornecedor.id }}</h3>
 </div>
@@ -50,8 +50,8 @@
  <hr />
 <div id="actions" class="row">
  <div class="col-md-12">
-  <a [routerLink]="['/fornecedor', fornecedor.id]" class="btn btn-primary">Editar</a>
-  <a routerLink="/lista-fornecedor" class="btn btn-default">Voltar</a>
+  <a [routerLink]="['/admin/fornecedor', fornecedor.id]" class="btn btn-primary">Editar</a>
+  <a routerLink="/admin/lista-fornecedor" class="btn btn-default">Voltar</a>
   <a href="#" class="btn btn-default" data-toggle="modal" data-target="#delete-modal" (click)="mostrarModal=true" >Excluir</a>
  </div>
 </div>

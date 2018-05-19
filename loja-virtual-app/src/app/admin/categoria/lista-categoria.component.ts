@@ -8,48 +8,49 @@ import { CategoriaService } from './categoria.service';
   styleUrls: ['./lista-categoria.component.css']
 })
 export class ListaCategoriaComponent implements OnInit {
-  
+
   public categorias: Array<any>;
   public listaFiltrada = [];
   public paraExcluir: any;
-  public filtroNomeCategoria: string = "";
-  
-  constructor(private categoriaService: CategoriaService ) { 
-    
+  public filtroNomeCategoria = '';
+
+  constructor(private categoriaService: CategoriaService) {
+
   }
 
   ngOnInit() {
+    console.log('Lista Categoria Component');
     this.carregar();
   }
-  
-  public carregar(){
+
+  public carregar() {
     this.categoriaService.getAll().subscribe(
       _categorias => {
         this.categorias = _categorias;
         this.listaFiltrada = _categorias;
-    });
+      });
   }
-  
-  
-  public excluir(){
-    if(this.paraExcluir){
+
+
+  public excluir() {
+    if (this.paraExcluir) {
       this.categoriaService.delete(this.paraExcluir.id)
         .subscribe(deletado => {
           this.carregar();
         });
     }
   }
-  
-  public marcarParaExcluir(item: any){
+
+  public marcarParaExcluir(item: any) {
     this.paraExcluir = item;
   }
-  
-  public buscar(){
-    if(this.filtroNomeCategoria){
+
+  public buscar() {
+    if (this.filtroNomeCategoria) {
       this.listaFiltrada = this.categorias.filter(c => {
         return c.nome.toLowerCase().includes(this.filtroNomeCategoria.toLowerCase());
       });
-    }else{
+    } else {
       this.carregar();
     }
   }

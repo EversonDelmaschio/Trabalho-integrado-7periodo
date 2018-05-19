@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           if (auth.sucesso) {
             localStorage.setItem('token', auth.token);
             localStorage.setItem('user', auth.user);
-            this.router.navigate(['']);
+            this.router.navigate(['admin']);
           } else {
             this.toastr.error('Login ou senha inválidos', 'Erro!');
           }

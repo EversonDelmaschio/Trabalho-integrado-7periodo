@@ -1,5 +1,5 @@
 <!-- <app-template></app-template> -->
-<app-home></app-home>
+<!-- <app-home></app-home> -->
 <!-- Modal -->
 <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
   <div class="modal-dialog" role="document">
@@ -36,7 +36,7 @@
     </div>
  
     <div class="col-md-3">
-        <a [routerLink]="['/categoria', 0]" class="btn btn-primary pull-right h2">Nova Categoria</a>
+        <a [routerLink]="['/admin/categoria', 0]" class="btn btn-primary pull-right h2">Nova Categoria</a>
     </div>
   </div> <!-- /#top -->
 
@@ -62,8 +62,8 @@
                         <!--td>{{categoria.lucro}}</td-->
                         <td>{{categoria.desconto}}</td>
                         <td class="actions">
-                            <a class="btn btn-success btn-sm" [routerLink]="['/view-categoria', categoria.id]"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Visualizar</a>
-                            <a class="btn btn-warning btn-sm" [routerLink]="['/categoria', categoria.id]"><span class="
+                            <a class="btn btn-success btn-sm" [routerLink]="['/admin/view-categoria', categoria.id]"><span class="glyphicon glyphicon-eye-open"></span>&nbsp;Visualizar</a>
+                            <a class="btn btn-warning btn-sm" [routerLink]="['/admin/categoria', categoria.id]"><span class="
 glyphicon glyphicon-pencil"></span>&nbsp;Editar</a>
                             <a class="btn btn-danger btn-sm" (click)="marcarParaExcluir(categoria)" data-toggle="modal" data-target="#delete-modal"><span class="glyphicon glyphicon-trash"></span>&nbsp;Excluir</a>
                         </td>
