@@ -20,6 +20,8 @@ import { HomeModule } from './admin/home/home.module';
 import { CategoriaModule } from './admin/categoria/categoria.module';
 import { FornecedorModule } from './admin/fornecedor/fornecedor.module';
 import { ClienteModule } from './admin/cliente/cliente.module';
+import { MenuInicioComponent } from './loja/menu-inicio/menu-inicio.component';
+import { CustomMaterialModule } from './loja/custom-material.module';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ClienteModule } from './admin/cliente/cliente.module';
     AppComponent,
     TemplateComponent,
     LoginComponent,
-    ProdutoDescricaoPipe
+    ProdutoDescricaoPipe,
+    MenuInicioComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { ClienteModule } from './admin/cliente/cliente.module';
     CategoriaModule,
     FornecedorModule,
     ClienteModule,
-    HomeModule
+    HomeModule,
+    CustomMaterialModule
   ],
   exports: [],
   providers: [LoginService, AuthGuardService, ToastrService],
