@@ -30,7 +30,7 @@ import { CustomMaterialModule } from './loja/custom-material.module';
     TemplateComponent,
     LoginComponent,
     ProdutoDescricaoPipe,
-    MenuInicioComponent
+    MenuInicioComponent,
   ],
   imports: [
     BrowserModule,
