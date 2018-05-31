@@ -31,10 +31,6 @@ export class ListaProdutoComponent implements OnInit {
           this.produtos = _produtos;
           this.listaFiltrada = _produtos;
         });
-    this.categoriaService.getAll().subscribe(
-      _categorias => {
-        this.categorias = _categorias;
-      });
   }
 
   public excluir() {

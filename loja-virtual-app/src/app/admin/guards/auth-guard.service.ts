@@ -10,6 +10,7 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> {
     return this.loginService.verifyToken().map(data => {
+      console.log('asddsad', data);
       if (data) {
         return true;
       }

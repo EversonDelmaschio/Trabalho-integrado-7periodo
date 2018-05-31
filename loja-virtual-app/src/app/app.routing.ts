@@ -20,8 +20,9 @@ import { MenuInicioComponent } from './loja/menu-inicio/menu-inicio.component';
 
 
 const APP_ROUTES: Routes = [
-    {path: 'admin', component: HomeComponent, canActivate: [AuthGuardService] },
+    {path: '', component: MenuInicioComponent},
     {path: 'loja', component: MenuInicioComponent},
+    {path: 'admin', component: HomeComponent, canActivate: [AuthGuardService] },
     {path: 'login', component: LoginComponent},
     // {path: 'produto/:id', component: ProdutoComponent, canActivate: [AuthGuardService] },
     // {path: 'view-produto/:id', component: ViewProdutoComponent, canActivate: [AuthGuardService]  },

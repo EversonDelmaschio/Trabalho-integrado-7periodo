@@ -41,6 +41,7 @@ export class ProdutoComponent implements OnInit {
       .subscribe(
         _produto => {
           this.produto = _produto;
+          console.log('Produtos: ', this.produto);
       });
     }
 
