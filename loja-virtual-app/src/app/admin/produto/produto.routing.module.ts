@@ -8,7 +8,7 @@ import { AuthGuardService } from '../guards/auth-guard.service';
 
 const produtoRouting = [
     {
-        path: 'admin', component: HomeComponent, children: [
+        path: 'admin', component: HomeComponent, canActivate: [AuthGuardService], children: [
             { path: 'produto/:id', component: ProdutoComponent, canActivate: [AuthGuardService] },
             { path: 'view-produto/:id', component: ViewProdutoComponent, canActivate: [AuthGuardService] },
             { path: 'lista-produto', component: ListaProdutoComponent, canActivate: [AuthGuardService] },
