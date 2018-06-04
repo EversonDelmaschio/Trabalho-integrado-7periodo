@@ -22,6 +22,8 @@ import { FornecedorModule } from './admin/fornecedor/fornecedor.module';
 import { ClienteModule } from './admin/cliente/cliente.module';
 import { MenuInicioComponent } from './loja/menu-inicio/menu-inicio.component';
 import { CustomMaterialModule } from './loja/custom-material.module';
+import { SpinnerComponent } from './common/spinner/spinner.component';
+import { DashboardInicioComponent } from './loja/dashboard-inicio/dashboard-inicio.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { CustomMaterialModule } from './loja/custom-material.module';
     LoginComponent,
     ProdutoDescricaoPipe,
     MenuInicioComponent,
+    DashboardInicioComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

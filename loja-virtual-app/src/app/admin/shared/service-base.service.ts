@@ -20,7 +20,7 @@ export class ServiceBase {
         this.END_POINT_URL = AppConfig.BASE_URL() + this.tipo;
     }
 
-    public getAll(): Observable<any> {
+    public getAll(filtros?: any): Observable<any> {
         return this.http.get(this.END_POINT_URL).map(data => data.json());
     }
 

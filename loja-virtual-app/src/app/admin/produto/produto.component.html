@@ -23,6 +23,11 @@
 
     <div class="row">
       <div class="form-group col-md-4">
+        <label name="venda">Link da Imagem:</label>
+        <input type="text" [(ngModel)]="produto.imagem" class="form-control" id="imagem" name="imagem">
+      </div>
+
+      <div class="form-group col-md-4">
         <label name="venda">Venda:</label>
         <input type="number" [(ngModel)]="produto.venda" class="form-control" id="venda" name="venda">
       </div>
