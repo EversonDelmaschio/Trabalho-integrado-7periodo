@@ -65,7 +65,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">DETALHES</div>
                         <div class="panel-body">
-                            <p><b>Cor:</b> Cinza, preto, branco, Azul...</p>
+                            <p><b>Cor:</b> {{linhaCores}}</p>
                             <p><b>Material:</b> Elastano, Viscose</p>
                             <p><b>Marca:</b> Desconhecido</p>
                             <p><b>Modelagem:</b> Manga Longa</p>
@@ -92,18 +92,22 @@
                         <div class="form-group col-sm-3">
                           <h4>Escolha a cor:</h4>
                           <select class="form-control">
-                            <option>Branco</option>
-                            <option>Preto</option>
-                            <option>Cinza</option>
-                            <option>Azul</option>
+                            <option *ngFor="let cor of cores">{{cor}}</option>
                           </select>
                         </div>
                     </div>
                     <hr />
-                    <h4>Escolha o Tamanho:</h4>
+                     <div class="row">
+                        <div class="form-group col-sm-4">
+                          <h4>Escolha o Tamanho:</h4>
+                          <label class="checkbox-inline" name="tamanho" *ngFor="let tam of tamanhos"><input type="radio" name="tamanho" value= {{tam}} (change)="selecionarTam($event)" >{{tam}}</label>
+                        </div>
+                    </div>
+                    
+                    <!--h4>Escolha o Tamanho:</h4>
                     <label class="checkbox-inline"><input type="radio" name="optradio">P</label>
                     <label class="checkbox-inline"><input type="radio" name="optradio">M</label>
-                    <label class="checkbox-inline"><input type="radio" name="optradio">G</label>
+                    < label class="checkbox-inline"><input type="radio" name="optradio">G</label-->
                     <hr />
                      <div class="row">
                        <div class="col-sm-3">

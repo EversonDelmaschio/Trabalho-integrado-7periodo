@@ -20,10 +20,14 @@ export class ProdutoDetalheComponent implements OnInit {
   public id: number;
   public sub: any;
   public categoriaId = 1;
+  public linhaCores:string = '';
+  public tamEscolhido: string = "P";
+  public corEscolhida: string;
   
-  cores: any[]= ['Preto', 'Branco', 'Azul', 'Cinza'];
+  
+  public cores: any[]= ['Preto', 'Vermelho', 'Azul', 'Cinza'];
 
-  tamanho: string[] = ["P", "M", "G", "GG"];
+  public tamanhos: string[] = ['P', 'M', 'G', 'GG'];
   
   constructor(private http: Http, private produtoService: ProdutoService,
               private route: ActivatedRoute,
@@ -33,8 +37,30 @@ export class ProdutoDetalheComponent implements OnInit {
               ) {
    this.produto = new Produto();
   }
+  
+  listaCores(){
+    for(let i = 0; i < this.cores.length; i++){
+      if(i+1 == this.cores.length){
+        this.linhaCores=this.linhaCores+this.cores[i]+'...';
+      }else{
+        this.linhaCores=this.linhaCores+this.cores[i]+','+' ';
+      }
+    }
+  }
+  
+  public selecionarTam(item: any) {
+    console.log(item.target.value);
+    this.tamEscolhido = item.target.value;
+//    if (this.categoriaId) {
+//      this.produto.categoria = this.categoriaId;
+//    }
+  }
+  
 
   ngOnInit() {
+  
+    this.listaCores();
+    
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['id']; // (+) converts string 'id' to a number
     });

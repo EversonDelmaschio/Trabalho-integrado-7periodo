@@ -21,7 +21,8 @@ import { CategoriaModule } from './admin/categoria/categoria.module';
 import { FornecedorModule } from './admin/fornecedor/fornecedor.module';
 import { ClienteModule } from './admin/cliente/cliente.module';
 import { MenuInicioComponent } from './loja/menu-inicio/menu-inicio.component';
-import { CustomMaterialModule } from './loja/custom-material.module';
+//import { CustomMaterialModule } from './loja/custom-material.module';
+import {ProdutoDetalheModule} from './loja/produto-detalhe/produto-detalhe.module';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { CustomMaterialModule } from './loja/custom-material.module';
     FornecedorModule,
     ClienteModule,
     HomeModule,
-    CustomMaterialModule
+//    CustomMaterialModule,
+    ProdutoDetalheModule
   ],
   exports: [],
   providers: [LoginService, AuthGuardService, ToastrService],
