@@ -1,33 +1,47 @@
 <!-- <app-template></app-template> -->
 <!-- <app-home></app-home> -->
+
 <div id="main" class="container">
   <h3 class="page-header">Adicionar Produto:</h3>
   <form (ngSubmit)="cadastrar()">
     <!-- area de campos do form -->
+    
     <div class="row">
+      
       <div class="form-group col-md-4">
         <label name="nome">Nome:</label>
         <input type="text" [(ngModel)]="produto.nome" class="form-control" id="nome" name="nome">
       </div>
 
-      <div class="form-group col-md-4">
+      
+      <div class="form-group col-md-2">
+        <label name="marca">Marca:</label>
+        <input type="number" [(ngModel)]="produto.marca" class="form-control" id="marca" name="marca">
+      </div>
+
+      <div class="form-group col-md-2">
+        <label name="modelo">Modelo:</label>
+        <input type="number" [(ngModel)]="produto.modelo" class="form-control" id="modelo" name="modelo">
+      </div>
+      
+      <div class="form-group col-md-2">
+        <label name="material">Material:</label>
+        <input type="number" [(ngModel)]="produto.material" class="form-control" id="material" name="material">
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="form-group col-md-2">
         <label name="custo">Custo:</label>
         <input type="number" [(ngModel)]="produto.custo" class="form-control" id="custo" name="custo">
       </div>
-
-      <div class="form-group col-md-4 ">
-        <label name="quantidade">Quantidade:</label>
-        <input type="number" [(ngModel)]="produto.quantidade" class="form-control" name="quantidade" id="quantidade">
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group col-md-4">
+      
+      <div class="form-group col-md-2">
         <label name="venda">Venda:</label>
         <input type="number" [(ngModel)]="produto.venda" class="form-control" id="venda" name="venda">
       </div>
 
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-2">
         <label for="comboCategorias">Categoria</label>
         <select class="form-control" id="comboCategorias" (change)="selecionar($event)">
           <option *ngFor="let item of categorias" value="{{item.id}}" [selected]="item.id == produto.categoria">{{item.nome}}</option>
@@ -36,10 +50,47 @@
     </div>
 
     <div class="row">
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-6">
         <label name="descricao">Descricao:</label>
         <textarea type="text" [(ngModel)]="produto.descricao" class="form-control" id="descricao" name="descricao">
         </textarea>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="form-group col-md-4">
+        <div class="table-responsive">
+          <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Tamanho</th>
+                    <th>Cor</th>
+                    <th>Quantidade</th>
+                  </tr>
+                </thead>
+               <tbody>
+                <tr>
+                  <td>P</td>
+                  <td>Preto</td>
+                  <td>2<td>
+                </tr>
+                <tr>
+                  <td>M</td>
+                  <td>Branco</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>P</td>
+                  <td>Azul</td>
+                  <td>1</td>
+                </tr>
+              </tbody>
+  
+          </table>
+        </div>
+      </div>
+      <div class="form-group col-md-2">
+          <a href="#"><span class="glyphicon glyphicon-plus"></span></a>
       </div>
     </div>
 

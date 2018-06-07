@@ -23,6 +23,7 @@ import { ClienteModule } from './admin/cliente/cliente.module';
 import { MenuInicioComponent } from './loja/menu-inicio/menu-inicio.component';
 //import { CustomMaterialModule } from './loja/custom-material.module';
 import {ProdutoDetalheModule} from './loja/produto-detalhe/produto-detalhe.module';
+import { CarrinhoComponent } from './loja/carrinho/carrinho.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {ProdutoDetalheModule} from './loja/produto-detalhe/produto-detalhe.modul
     LoginComponent,
     ProdutoDescricaoPipe,
     MenuInicioComponent,
+    CarrinhoComponent,
   ],
   imports: [
     BrowserModule,

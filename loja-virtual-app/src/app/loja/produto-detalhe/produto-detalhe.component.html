@@ -61,28 +61,38 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-                    <br>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">DETALHES</div>
-                        <div class="panel-body">
-                            <p><b>Cor:</b> {{linhaCores}}</p>
-                            <p><b>Material:</b> Elastano, Viscose</p>
-                            <p><b>Marca:</b> Desconhecido</p>
-                            <p><b>Modelagem:</b> Manga Longa</p>
-                        </div>
-                        <div class="panel-footer">
-                            <h4>Coleção: Inverno 2018</h4>
-                            <br>
-                            <p>Veja mais desta <a href="url">{{produto.categoria.nome}}</a></p>
-                        
-                        </div>
+                <br>
+                <!--div class="row">
+                  <div class="col-sm-12">  
+                    <div class="thumbnail">
+                      <a>
+                        <img src="./assets/imagens/carrosel-1.jpg" class="img-thumbnail" alt="Cinque Terre" width="96" height="96">
+                        <img src="./assets/imagens/carrosel-2.jpg" class="img-thumbnail" alt="Cinque Terre" width="96" height="96">
+                      </a>
                     </div>
-
-            </div>
+                  </div>
+                </div-->
+                  <div class="panel panel-default">
+                      <div class="panel-heading">DETALHES</div>
+                      <div class="panel-body">
+                          <p><b>Cor:</b> {{linhaCores}}</p>
+                          <p><b>Material:</b> {{produto.material}}</p>
+                          <p><b>Marca:</b> {{produto.marca}}</p>
+                          <p><b>Modelo:</b> {{produto.modelo}}</p>
+                          <p><b>Descricao:</b> {{produto.descricao}}</p>
+                      </div>
+                      <div class="panel-footer">
+                          <h4>Coleção: Inverno 2018</h4>
+                          <br>
+                          <p>Veja mais desta <a href="url">{{produto.categoria.nome}}</a></p>
+                      
+                      </div>
+                  </div>
+        </div>
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h2>blusa feminina canelada gola alta com zíper de argola manga longa cinza mescla</h2>
+                  <h2>{{produto.nome}}</h2>
                   <h4>em até <b>2x</b> de <b><font color="#0000CD">R$ {{produto.custo/2}}</font></b> no cartão</h4>
                   <h4>ou <b>R$ {{produto.custo}}</b> à Vista.</h4>
                 
@@ -98,16 +108,12 @@
                     </div>
                     <hr />
                      <div class="row">
-                        <div class="form-group col-sm-4">
+                        <div class="form-group col-sm-6">
                           <h4>Escolha o Tamanho:</h4>
                           <label class="checkbox-inline" name="tamanho" *ngFor="let tam of tamanhos"><input type="radio" name="tamanho" value= {{tam}} (change)="selecionarTam($event)" >{{tam}}</label>
                         </div>
                     </div>
                     
-                    <!--h4>Escolha o Tamanho:</h4>
-                    <label class="checkbox-inline"><input type="radio" name="optradio">P</label>
-                    <label class="checkbox-inline"><input type="radio" name="optradio">M</label>
-                    < label class="checkbox-inline"><input type="radio" name="optradio">G</label-->
                     <hr />
                      <div class="row">
                        <div class="col-sm-3">

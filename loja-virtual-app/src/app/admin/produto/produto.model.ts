@@ -5,6 +5,8 @@ export class Produto {
     destaque: boolean;
     custo: number; // required
     venda: number; // required
-    tamanho: string;
     categoria: any;
+    marca: string;
+    modelo: string;
+    material: string;
 }

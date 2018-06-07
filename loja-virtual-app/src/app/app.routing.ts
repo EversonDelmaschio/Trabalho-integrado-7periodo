@@ -17,14 +17,16 @@ import { LoginComponent } from './admin/login/login.component';
 import { AuthGuardService } from './admin/guards/auth-guard.service';
 import { MenuInicioComponent } from './loja/menu-inicio/menu-inicio.component';
 import {ProdutoDetalheComponent} from './loja/produto-detalhe/produto-detalhe.component';
+import {CarrinhoComponent} from './loja/carrinho/carrinho.component';
 
 
 
 const APP_ROUTES: Routes = [
-    {path: 'admin', component: HomeComponent, canActivate: [AuthGuardService] }, //cadê a loja? kkkkk
+    {path: 'admin', component: HomeComponent, canActivate: [AuthGuardService] },
     {path: 'loja', component: MenuInicioComponent},
     {path: 'produto-detalhe/:id', component: ProdutoDetalheComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'carrinho', component: CarrinhoComponent},
     // {path: 'produto/:id', component: ProdutoComponent, canActivate: [AuthGuardService] },
     // {path: 'view-produto/:id', component: ViewProdutoComponent, canActivate: [AuthGuardService]  },
     // {path: 'lista-produto', component: ListaProdutoComponent, canActivate: [AuthGuardService]  },
