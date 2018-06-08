@@ -41,6 +41,7 @@ export class ProdutoComponent implements OnInit {
       .subscribe(
         _produto => {
           this.produto = _produto;
+          console.log('Produtos: ', this.produto);
       });
     }
 
@@ -60,7 +61,7 @@ export class ProdutoComponent implements OnInit {
       this.produtoService.put(this.id, {produto: this.produto})
       .subscribe(p => {
         this.toastr.success('Sucesso!', 'Produto atualizado com sucesso!');
-        this.router.navigate(['lista-produto']);
+        this.router.navigate(['/admin/lista-produto']);
       });
     }
   }

@@ -23,7 +23,9 @@ import {CarrinhoComponent} from './loja/carrinho/carrinho.component';
 
 const APP_ROUTES: Routes = [
     {path: 'admin', component: HomeComponent, canActivate: [AuthGuardService] },
+    {path: '', component: MenuInicioComponent},
     {path: 'loja', component: MenuInicioComponent},
+    {path: 'admin', component: HomeComponent, canActivate: [AuthGuardService] },
     {path: 'produto-detalhe/:id', component: ProdutoDetalheComponent},
     {path: 'login', component: LoginComponent},
     {path: 'carrinho', component: CarrinhoComponent},
@@ -39,7 +41,7 @@ const APP_ROUTES: Routes = [
     // {path: 'fornecedor/:id', component: FornecedorComponent, canActivate: [AuthGuardService] },
     // {path: 'lista-fornecedor', component: ListaFornecedorComponent, canActivate: [AuthGuardService] },
     // {path: 'view-fornecedor/:id', component: ViewFornecedorComponent, canActivate: [AuthGuardService] },
-    {path: '**', redirectTo: 'login'}
+    {path: '**', redirectTo: 'login'} // rever
 
 ];
 

@@ -21,9 +21,10 @@ import { CategoriaModule } from './admin/categoria/categoria.module';
 import { FornecedorModule } from './admin/fornecedor/fornecedor.module';
 import { ClienteModule } from './admin/cliente/cliente.module';
 import { MenuInicioComponent } from './loja/menu-inicio/menu-inicio.component';
-//import { CustomMaterialModule } from './loja/custom-material.module';
 import {ProdutoDetalheModule} from './loja/produto-detalhe/produto-detalhe.module';
 import { CarrinhoComponent } from './loja/carrinho/carrinho.component';
+import { SpinnerComponent } from './common/spinner/spinner.component';
+import { DashboardInicioComponent } from './loja/dashboard-inicio/dashboard-inicio.component';
 
 
 @NgModule({
@@ -34,6 +35,8 @@ import { CarrinhoComponent } from './loja/carrinho/carrinho.component';
     ProdutoDescricaoPipe,
     MenuInicioComponent,
     CarrinhoComponent,
+    DashboardInicioComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,6 @@ import { CarrinhoComponent } from './loja/carrinho/carrinho.component';
     FornecedorModule,
     ClienteModule,
     HomeModule,
-//    CustomMaterialModule,
     ProdutoDetalheModule
   ],
   exports: [],
