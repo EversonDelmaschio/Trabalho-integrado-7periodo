@@ -56,7 +56,12 @@ export class ProdutoComponent implements OnInit {
 
   cadastrar() {
     if (this.linkImagem) {
-      this.produto.imagens.push({id: 0, link: this.linkImagem});
+      const existe = this.produto.imagens.find(i => {
+        return i.link === this.linkImagem;
+      });
+      if (!existe) {
+        this.produto.imagens.push({id: 0, link: this.linkImagem});
+      }
     } else {
       this.produto.imagens = [];
     }
