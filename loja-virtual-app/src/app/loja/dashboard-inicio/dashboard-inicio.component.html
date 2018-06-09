@@ -75,9 +75,7 @@
 
         <div class="col-sm-3 col-lg-3 col-md-3 produto" *ngFor="let p of produtos">
           <div class="thumbnail">
-            <!-- <img src="https://produtos.fotos-riachuelo.com.br/media/catalog/product/cache/plp_image_3/306x382/e9c3970ab036de70892d86c6d221abfe/b/l/blusa-i-m-having-a-minnie-me-disney-12248223_foto4_corpo.jpg"
-              alt=""> -->
-              <img src="{{p.imagem}}" alt="">
+            <img src="{{p.imagens[0].link}}" alt="">
             <div class="caption">
               <h4>
                 <a routerLink="produto-detalhe/{{p.id}}">{{p.nome}}</a>

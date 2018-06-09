@@ -13,8 +13,8 @@ export class DashboardInicioComponent implements OnInit {
   constructor(private serviceProduto: ProdutoService) { }
 
   ngOnInit() {
-    console.log('Dashoard Inicio!');
     this.serviceProduto.getAll().subscribe(data => {
+      console.log('Dashboard Inicio');
       this.produtos = data;
       this.showSpinner = false;
     });

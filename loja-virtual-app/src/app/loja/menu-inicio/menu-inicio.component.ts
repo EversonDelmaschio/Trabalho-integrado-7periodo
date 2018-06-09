@@ -14,6 +14,7 @@ export class MenuInicioComponent implements OnInit {
   constructor(private serviceProduto: ProdutoService) { }
 
   ngOnInit() {
+    console.log('Menu Inicio');
     this.serviceProduto.getAll().subscribe(data => {
       this.produtos = data;
       this.showSpinner = false;

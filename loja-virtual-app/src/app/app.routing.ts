@@ -22,25 +22,12 @@ import {CarrinhoComponent} from './loja/carrinho/carrinho.component';
 
 
 const APP_ROUTES: Routes = [
-    {path: 'admin', component: HomeComponent, canActivate: [AuthGuardService] },
-    {path: '', component: MenuInicioComponent},
+    {path: '', redirectTo: 'loja', pathMatch: 'full'},
     {path: 'loja', component: MenuInicioComponent},
     {path: 'admin', component: HomeComponent, canActivate: [AuthGuardService] },
-    {path: 'produto-detalhe/:id', component: ProdutoDetalheComponent},
+    // {path: 'produto-detalhe/:id', component: ProdutoDetalheComponent},
     {path: 'login', component: LoginComponent},
     {path: 'carrinho', component: CarrinhoComponent},
-    // {path: 'produto/:id', component: ProdutoComponent, canActivate: [AuthGuardService] },
-    // {path: 'view-produto/:id', component: ViewProdutoComponent, canActivate: [AuthGuardService]  },
-    // {path: 'lista-produto', component: ListaProdutoComponent, canActivate: [AuthGuardService]  },
-    // {path: 'cliente/:id', component: ClienteComponent, canActivate: [AuthGuardService] },
-    // {path: 'view-cliente/:id', component: ViewClienteComponent, canActivate: [AuthGuardService] },
-    // {path: 'lista-cliente', component: ListaClienteComponent, canActivate: [AuthGuardService] },
-    // {path: 'categoria/:id', component: CategoriaComponent, canActivate: [AuthGuardService]  },
-    // {path: 'lista-categoria',  component: ListaCategoriaComponent, canActivate: [AuthGuardService] },
-    // {path: 'view-categoria/:id', component: ViewCategoriaComponent, canActivate: [AuthGuardService] },
-    // {path: 'fornecedor/:id', component: FornecedorComponent, canActivate: [AuthGuardService] },
-    // {path: 'lista-fornecedor', component: ListaFornecedorComponent, canActivate: [AuthGuardService] },
-    // {path: 'view-fornecedor/:id', component: ViewFornecedorComponent, canActivate: [AuthGuardService] },
     {path: '**', redirectTo: 'login'} // rever
 
 ];

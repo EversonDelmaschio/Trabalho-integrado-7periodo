@@ -49,9 +49,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>Categoria</th>
-                    <th>Estoque</th>
+                    <th>Quantidade</th>
                     <th>Custo</th>
+                    <th>Venda</th>
                     <th class="actions">Ações</th>
                  </tr>
             </thead>
@@ -60,9 +60,9 @@
                 <tr *ngFor="let produto of listaFiltrada">
                     <td>{{produto.id}}</td>
                     <td>{{produto.nome}}</td>
-                    <td>{{produto.categoria.nome}}</td>
                     <td>{{produto.quantidade}}</td>
                     <td>{{produto.custo}}</td>
+                    <td>{{produto.venda}}</td>
                     <td class="actions">
                         <a class="btn btn-success btn-xs" [routerLink]="['/admin/view-produto', produto.id]">Visualizar</a>
                         <a class="btn btn-warning btn-xs" [routerLink]="['/admin/produto', produto.id]" >Editar</a>

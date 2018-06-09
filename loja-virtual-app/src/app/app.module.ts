@@ -23,8 +23,10 @@ import { ClienteModule } from './admin/cliente/cliente.module';
 import { MenuInicioComponent } from './loja/menu-inicio/menu-inicio.component';
 import {ProdutoDetalheModule} from './loja/produto-detalhe/produto-detalhe.module';
 import { CarrinhoComponent } from './loja/carrinho/carrinho.component';
-import { SpinnerComponent } from './common/spinner/spinner.component';
 import { DashboardInicioComponent } from './loja/dashboard-inicio/dashboard-inicio.component';
+import { DashboardInicioModule } from './loja/dashboard-inicio/dashboard-inicio.module';
+import { MenuInicioModule } from './loja/menu-inicio/menu-inicio.module';
+import { SharedModule } from './admin/shared/shared.module';
 
 
 @NgModule({
@@ -33,10 +35,7 @@ import { DashboardInicioComponent } from './loja/dashboard-inicio/dashboard-inic
     TemplateComponent,
     LoginComponent,
     ProdutoDescricaoPipe,
-    MenuInicioComponent,
     CarrinhoComponent,
-    DashboardInicioComponent,
-    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +51,10 @@ import { DashboardInicioComponent } from './loja/dashboard-inicio/dashboard-inic
     FornecedorModule,
     ClienteModule,
     HomeModule,
-    ProdutoDetalheModule
+    DashboardInicioModule,
+    ProdutoDetalheModule,
+    MenuInicioModule,
+    SharedModule
   ],
   exports: [],
   providers: [LoginService, AuthGuardService, ToastrService],

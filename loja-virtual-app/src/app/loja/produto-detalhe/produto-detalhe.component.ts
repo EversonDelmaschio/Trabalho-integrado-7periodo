@@ -16,6 +16,7 @@ export class ProdutoDetalheComponent implements OnInit {
     // tslint:disable-next-line:no-trailing-whitespace
   public produto: Produto = new Produto();
   public categorias = [];
+  public imagens = [];
   public id: number;
   public sub: any;
   public categoriaId = 1;
@@ -53,18 +54,17 @@ export class ProdutoDetalheComponent implements OnInit {
       }
     }
   }
+
   public selecionarTam(item: any) {
     console.log(item.target.value);
     this.tamEscolhido = item.target.value;
-//    if (this.categoriaId) {
-//      this.produto.categoria = this.categoriaId;
-//    }
   }
 
   carregar() {
     if (this.id > 0) {
       this.produtoService.getById(this.id).subscribe(_produto => {
           this.produto = _produto;
+          this.imagens = this.produto.imagens;
       });
     }
   }
