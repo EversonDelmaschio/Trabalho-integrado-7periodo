@@ -1,5 +1,5 @@
 export class AppConfig {
-    public static AMBIENTE = 'dev';
+    public static AMBIENTE = 'prod';
 
     public static BASE_URL(): string {
         if (this.AMBIENTE === 'dev') {

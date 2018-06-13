@@ -33,27 +33,61 @@
 
 <div class="container-fluid">
     <div class="row">
-        <p>dados do cliente</p>
+       <div class="col-sm-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">Nome:<b>Adalberto Pedrosa Sinvastatina</b></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p><b>CPF:</b> 123.456.789-90</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <p><b>Telefone:</b> 999115229</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <P><b>Endereço:</b> Maria de Lourdes garcia, Ilha de Monte Belo, Vitoria-ES - 29051250</P>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel-heading"><b>Subtotal:</b> R$ 69,90 </div>
+            <div class="panel-body">
+                <p>Entrega: R$ 13,90</p>
+                <button type="button" class="btn btn-info">Cupom de Desconto</button>
+            </div>
+            <div class="panel-footer">
+                <p>Total:</p>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-8">
             <div class="panel panel-default">
-                <div class="panel-heading">blusa feminina canelada gola alta com zíper de argola manga longa amarela</div>
+                <div class="panel-heading"> Nome: <b>blusa feminina canelada gola alta com zíper de argola manga longa amarela</b></div>
                 <div class="panel-body">
                     <div class="col-sm-3">
                         <div class="thumbnail">
                             <a href="./assets/imagens/carrosel-1.jpg">
                                 <img src="./assets/imagens/carrosel-1.jpg" class="img-thumbnail" alt="Cinque Terre" width="150" height="100">
                                 <div class="caption">
-                                    <a><b>cor:</b>Cinza</a>
-                                    <a><b>Tamanho:</b> P</a>
+                                    <p><b>Cor:</b>Cinza</p>
+                                    <p><b>Tamanho:</b> P</p>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <div class="col-sm-2">
-                        <p>quantidade</p>
-                        <p>4</p>
+                        <p><b> R$: 69,90</b></p>
+                    </div>
+                    <div class="col-sm-4">
+                        <input class="input-sm" type="number" id="quantidade" name="quantidade">
+                    </div>
+                    <div class="col-sm-2">
+                        <p><b> R$: {{venda*quantidade}}</b></p>
                     </div>
                 </div>
             </div>
