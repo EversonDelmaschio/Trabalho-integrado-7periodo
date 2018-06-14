@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriaService } from '../categoria/categoria.service';
 import { ToastrService } from 'ngx-toastr';
 import { ExemplarProduto } from './exemplar-produto.model';
+import { Imagem } from './produto.model';
 
 @Component({
   selector: 'app-produto',
@@ -21,6 +22,7 @@ export class ProdutoComponent implements OnInit {
   public sub: any;
   public categoriaId = 1;
   public linkImagem: string;
+  public linkImagens: any;
   public tamanhos = [{id: 1, nome: 'PP'}, {id: 2, nome: 'P'}, {id: 3, nome: 'M'},
                      {id: 4, nome: 'G'}, {id: 5, nome: 'GG'}];
 
@@ -85,6 +87,11 @@ export class ProdutoComponent implements OnInit {
   public adicionarExemplar() {
     const novoExemplar = new ExemplarProduto();
     this.produto.exemplarprodutos.push(novoExemplar);
+  }
+  
+  public adicionarImagem(){
+    this.linkImagens.push(this.linkImagem);
+    console.log(this.linkImagens);
   }
 
   public selecionar(item: any) {

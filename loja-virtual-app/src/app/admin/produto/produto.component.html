@@ -24,8 +24,8 @@
       </div>
 
       <div class="form-group col-md-2">
-        <label name="material">Quantidade:</label>
-        <input type="number" [(ngModel)]="produto.quantidade" class="form-control" id="quantidade" name="quantidade">
+        <label name="material">Material:</label>
+        <input type="text" [(ngModel)]="produto.material" class="form-control" id="material" name="material">
       </div>
     </div>
 
@@ -38,12 +38,6 @@
       <div class="form-group col-md-2">
         <label name="venda">Venda:</label>
         <input type="number" [(ngModel)]="produto.venda" class="form-control" id="venda" name="venda">
-      </div>
-
-
-      <div class="form-group col-md-4">
-        <label for="comboCategorias">Imagem</label>
-        <input type="text" [(ngModel)]="linkImagem" class="form-control" id="imagem" name="imagem">
       </div>
 
 
@@ -94,6 +88,31 @@
       </div>
       <div class="form-group col-md-2">
         <a (click)="adicionarExemplar()" style="cursor: pointer;">
+          <span class="glyphicon glyphicon-plus"></span>
+        </a>
+      </div>
+      <div class="form-group col-md-4">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>        
+                  Imagem
+                  <!-- <input type="text" [(ngModel)]="linkImagem" class="form-control" id="imagem" name="imagem"> -->
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let imagem of linkImagens; let i = index">
+                <td>
+                  <input type="text" class="form-control"  name="linkImagem-{{i}}" [(ngModel)]="imagem.link" />
+                </td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="form-group col-md-2">
+        <a (click)="adicionarImagem()" style="cursor: pointer;">
           <span class="glyphicon glyphicon-plus"></span>
         </a>
       </div>
