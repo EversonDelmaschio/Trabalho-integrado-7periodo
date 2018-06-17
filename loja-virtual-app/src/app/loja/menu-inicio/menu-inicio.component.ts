@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../../admin/produto/produto.service';
+import {CategoriaService} from "../../admin/categoria/categoria.service";
 
 @Component({
   selector: 'app-menu-inicio',
