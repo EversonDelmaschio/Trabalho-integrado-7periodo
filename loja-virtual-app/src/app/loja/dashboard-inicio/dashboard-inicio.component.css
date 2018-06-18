@@ -18,16 +18,23 @@
     text-align: center;
   }
   .produto p{
+      color: #FF98CA;
     font-size: 10px;
   }
   .produto a{
     font-size: 22px;
-    color: #000;
+    color: #FF5FAF;
+  }
+  .produto .thumbnail{
+      border-color: #FFC6F2;
   }
   
   span.gold-star{
     font-size: 12px;
     color: #fdb602;
+  }
+  span.black-star{
+      color: #000;
   }
   
   footer{
@@ -43,7 +50,8 @@
 .catalog-filter-head, .catalog-filter-head:hover, .catalog-filter-head:focus {
     background-color: #FFC6F2 !important;
     border: 1px solid #FFC6F2 !important;
-    color: #ff62b0;
+        color: #ff62b0;
+    font-weight: bold;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
@@ -86,4 +94,15 @@ body {
     height:100%;
     padding:40px 30%;
     margin:0;
+}
+
+
+.pagination li > a{
+    color: #FF5FAF;
+    border: 1px solid #FFC6F2;
+}
+
+
+.fill{
+    width: 75%;
 }

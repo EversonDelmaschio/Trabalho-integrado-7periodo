@@ -11,15 +11,15 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img class="img-center" src="./assets/imagens/carrosel-1.jpg">
+      <img class="img-center fill" src="./assets/imagens/carrosel-1.jpg">
     </div>
 
     <div class="item">
-      <img class="img-center" src="./assets/imagens/carrosel-2.jpg">
+      <img class="img-center fill" src="./assets/imagens/carrosel-2.jpg">
     </div>
 
     <div class="item">
-      <img class="img-center" src="./assets/imagens/carrosel-3.jpg">
+      <img class="img-center fill" src="./assets/imagens/carrosel-3.jpg">
     </div>
   </div>
 
@@ -51,7 +51,8 @@
 
       <div class="list-group">
         <a class="list-group-item list-group-item-info catalog-filter-head">Preço</a>
-        <a class="list-group-item price-filter-list">min -------o---------o------ max </a>
+        <input class="list-group-item price-filter-list" placeholder="Minimo (R$)" type="number" id="precomin">
+        <input class="list-group-item price-filter-list" placeholder="Máximo (R$)" type="number" id="precomax">
       </div>
     </div>
 
@@ -71,12 +72,12 @@
                 <s style="color: #555555;">$89.90</s> {{p.venda}}
               </h4>
               <div class="ratings">
-                <p>
+                <p style="color: #000;">
                   <span class="glyphicon glyphicon-star gold-star"></span>
                   <span class="glyphicon glyphicon-star gold-star"></span>
                   <span class="glyphicon glyphicon-star gold-star"></span>
                   <span class="glyphicon glyphicon-star gold-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star black-star"></span>
                   (11)
                 </p>
 
