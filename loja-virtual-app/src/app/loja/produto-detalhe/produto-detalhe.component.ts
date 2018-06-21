@@ -5,6 +5,7 @@ import { ProdutoService } from '../../admin/produto/produto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriaService } from '../../admin/categoria/categoria.service';
 import { ToastrService } from 'ngx-toastr';
+import { Carrinho } from '../carrinho/carrinho.model';
 
 @Component({
   selector: 'app-produto-detalhe',
@@ -23,6 +24,7 @@ export class ProdutoDetalheComponent implements OnInit {
   public linhaCores = '';
   public tamEscolhido = 'P';
   public corEscolhida: string;
+  public carrinho: Carrinho = new Carrinho();
 
   public cores = ['Preto', 'Vermelho', 'Azul', 'Cinza'];
 
@@ -35,6 +37,7 @@ export class ProdutoDetalheComponent implements OnInit {
               public toastr: ToastrService
               ) {
    this.produto = new Produto();
+   this.carrinho = new Carrinho();
   }
 
   ngOnInit() {
@@ -60,12 +63,21 @@ export class ProdutoDetalheComponent implements OnInit {
     this.tamEscolhido = item.target.value;
   }
 
-  carregar() {
+  public carregar() {
     if (this.id > 0) {
       this.produtoService.getById(this.id).subscribe(_produto => {
           this.produto = _produto;
           this.imagens = this.produto.imagens;
       });
+    }
+  }
+  
+  public adicinarCarrinho(){
+    for(let i = 0; i <this.produto.exemplarprodutos.length; i++){
+      if(this.tamEscolhido == this.produto.exemplarprodutos[i].tamanho && this.corEscolhida == this.produto.exemplarprodutos[i].cor && this.produto.exemplarprodutos[i].quantidade > 1){
+        this.carrinho.exemplarprodutos.push(this.produto.exemplarprodutos[i]);
+        console.log(this.carrinho);
+      }
     }
   }
 
