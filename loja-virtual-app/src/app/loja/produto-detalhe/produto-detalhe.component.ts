@@ -7,6 +7,7 @@ import { CategoriaService } from '../../admin/categoria/categoria.service';
 import { ToastrService } from 'ngx-toastr';
 import { Carrinho } from '../carrinho/carrinho.model';
 import { CarrinhoService } from '../carrinho/carrinho.service';
+import { ExemplarProduto } from '../../admin/produto/exemplar-produto.model';
 
 @Component({
   selector: 'app-produto-detalhe',
@@ -24,13 +25,13 @@ export class ProdutoDetalheComponent implements OnInit {
   public categoriaId = 1;
   public linhaCores = '';
   public tamEscolhido;
-  public corEscolhida: string;
+  public corEscolhida: string = "Azul";
   public tamanhoInvalido = false;
   public carrinho: Carrinho = new Carrinho();
 
   public cores = ['Preto', 'Vermelho', 'Azul', 'Cinza'];
 
-  public tamanhos: string[] = ['P', 'M', 'G', 'GG'];
+  public tamanhos = [{id: 1, nome: 'PP'}, {id: 2, nome: 'P'}, {id: 3, nome: 'M'}, {id: 4, nome: 'G'}, {id: 5, nome: 'GG'}];
 
   constructor(private http: Http, private produtoService: ProdutoService,
     private route: ActivatedRoute,
@@ -80,12 +81,14 @@ export class ProdutoDetalheComponent implements OnInit {
     if (!this.tamEscolhido) {
       this.tamanhoInvalido = true;
     } else {
-      this.tamanhoInvalido = false;
-      this.carrinho.exemplarprodutos = this.produto.exemplarprodutos;
-      this.carrinhoService.adicionarProduto(this.carrinho);
-      console.log('Adicionar ao carrinho');
+      for(let i =0; i < this.produto.exemplarprodutos.length; i++){
+        let exemplar: ExemplarProduto = this.produto.exemplarprodutos[i];
+        if(exemplar.tamanhoId == this.tamEscolhido && exemplar.cor == this.corEscolhida && exemplar.quantidade > 0){
+          let resposta: boolean = this.carrinhoService.adicionarProduto(exemplar);
+          if(resposta) this.toastr.success('Sucesso!', 'Produto Adicionado ao Carrinho!');
+          else this.toastr.warning("Produto ja Adicionado ao Carrinho", "Aviso!");
+        }
+      }
     }
   }
-
-
 }

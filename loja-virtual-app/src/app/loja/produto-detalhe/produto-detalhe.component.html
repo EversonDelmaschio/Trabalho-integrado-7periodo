@@ -139,7 +139,7 @@
             <div class="form-group col-sm-6">
               <h4>Escolha o Tamanho:</h4>
               <label class="checkbox-inline" name="tamanho" *ngFor="let tam of tamanhos">
-                <input type="radio" name="tamanho" value="{{tam}}" (change)="selecionarTam($event)">{{tam}}</label>
+                <input type="radio" name="tamanho" value="{{tam.id}}" (change)="selecionarTam($event)">{{tam.nome}}</label>
             </div>
           </div>
           <p style="color: red" *ngIf="tamanhoInvalido"> Selecione o tamanho</p>
