@@ -139,18 +139,19 @@
             <div class="form-group col-sm-6">
               <h4>Escolha o Tamanho:</h4>
               <label class="checkbox-inline" name="tamanho" *ngFor="let tam of tamanhos">
-                <input type="radio" name="tamanho" value={{tam}} (change)="selecionarTam($event)">{{tam}}</label>
+                <input type="radio" name="tamanho" value="{{tam}}" (change)="selecionarTam($event)">{{tam}}</label>
             </div>
           </div>
+          <p style="color: red" *ngIf="tamanhoInvalido"> Selecione o tamanho</p>
 
           <hr />
           <div class="row">
             <div class="col-sm-3">
-              <button type="button" class="btn btn-primary btn-lg">
-                <span class="glyphicon glyphicon-shopping-cart" (OnClick)="adicionarCarrinho()"></span>&nbsp; Carrinho</button>
+              <button type="button" class="btn btn-primary btn-lg" (click)="adicionarCarrinho()">
+                <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Carrinho</button>
             </div>
             <div class="col-sm-9">
-              <button style="widht: 100%;" type="button" class="btn btn-success btn-lg btn-block">
+              <button style="width: 100%;" type="button" class="btn btn-success btn-lg btn-block">
                 <span class="glyphicon glyphicon-credit-card"></span>&nbsp; Comprar</button>
             </div>
           </div>

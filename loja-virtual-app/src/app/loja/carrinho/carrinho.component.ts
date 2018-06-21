@@ -5,6 +5,7 @@ import { ProdutoService } from '../../admin/produto/produto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriaService } from '../../admin/categoria/categoria.service';
 import { ToastrService } from 'ngx-toastr';
+// tslint:disable:no-inferrable-types
 
 @Component({
   selector: 'app-carrinho',
@@ -21,7 +22,7 @@ export class CarrinhoComponent implements OnInit {
   public categorias: Array<any>;
   public categoriaAtual: any;
   public quantidadeSelecionada: number = 1;
-  public subtotal : number;
+  public subtotal: number;
 
   constructor(private produtoService: ProdutoService) { }
 
@@ -51,15 +52,15 @@ export class CarrinhoComponent implements OnInit {
   public marcarParaExcluir(produto: any) {
     this.paraExcluir = produto;
   }
-  
-  public calculaSubtotal(){
+
+  public calculaSubtotal() {
     this.subtotal = 0;
-    for (var i=0; i < this.listaFiltrada.length; i++){
-      this.subtotal += (this.listaFiltrada[i].quantidade*this.listaFiltrada[i].venda);
+    for (let i = 0; i < this.listaFiltrada.length; i++) {
+      this.subtotal += (this.listaFiltrada[i].quantidade * this.listaFiltrada[i].venda);
       console.log(this.subtotal);
     }
   }
-  
-  
+
+
 
 }
