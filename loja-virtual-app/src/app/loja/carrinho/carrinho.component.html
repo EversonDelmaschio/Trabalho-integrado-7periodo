@@ -54,20 +54,28 @@
             </div>
         </div>
         <div class="col-sm-4">
-            <div class="panel-heading"><b>Subtotal:</b> R$ 69,90 </div>
+            <div class="panel-heading"><b>Subtotal:</b> R$ {{subtotal}} </div>
+            <hr />
             <div class="panel-body">
                 <p>Entrega: R$ 13,90</p>
-                <button type="button" class="btn btn-info">Cupom de Desconto</button>
+                <hr />
+                <div class="row">
+                    <label for="cupomDesconto">Cupom de Desconto:</label>
+                </div>
+                <div class="row">
+                    <input type="text" id="cupomDesconto" name="cupomDesconto">
+                    <button type="button" class="btn btn-info">Adicionar</button>
+                </div>
             </div>
             <div class="panel-footer">
                 <p>Total:</p>
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row" *ngFor="let produto of listaFiltrada">
         <div class="col-sm-8">
             <div class="panel panel-default">
-                <div class="panel-heading"> Nome: <b>blusa feminina canelada gola alta com zíper de argola manga longa amarela</b></div>
+                <div class="panel-heading"> Nome: <b>{{produto.nome}}</b></div>
                 <div class="panel-body">
                     <div class="col-sm-3">
                         <div class="thumbnail">
@@ -81,13 +89,13 @@
                         </div>
                     </div>
                     <div class="col-sm-2">
-                        <p><b> R$: 69,90</b></p>
+                        <p><b> R$: {{produto.venda}}</b></p>
                     </div>
                     <div class="col-sm-4">
-                        <input class="input-sm" type="number" id="quantidade" name="quantidade">
+                        <input class="input-sm" type="number" id="quantidade" name="quantidade" [(ngModel)] = "produto.quantidade" (change)="calculaSubtotal()">
                     </div>
                     <div class="col-sm-2">
-                        <p><b> R$: {{venda*quantidade}}</b></p>
+                        <p><b> R$: {{produto.venda*produto.quantidade}}</b></p>
                     </div>
                 </div>
             </div>
