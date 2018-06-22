@@ -7,7 +7,6 @@ import { ExemplarProduto } from '../../admin/produto/exemplar-produto.model';
 export class CarrinhoService {
     // tslint:disable:prefer-const
     adicionarProduto(exemplar: ExemplarProduto): boolean  {
-        // Adicionar os produtos ou os ID's ?
         // Verificar se já existe um carrinho com produtos
         if (localStorage.getItem('carrinho_online')) {
             let dados: Array<ExemplarProduto> = JSON.parse(localStorage.getItem('carrinho_online'));
@@ -27,6 +26,10 @@ export class CarrinhoService {
             localStorage.setItem('carrinho_online', JSON.stringify([exemplar]));
             return true;
         }
+    }
+
+    getProdutos() {
+        return JSON.parse(localStorage.getItem('carrinho_online'));
     }
 
     removerProduto(exemplar: ExemplarProduto) {

@@ -5,17 +5,19 @@ import { ProdutoService } from '../../admin/produto/produto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriaService } from '../../admin/categoria/categoria.service';
 import { ToastrService } from 'ngx-toastr';
+import { CarrinhoService } from './carrinho.service';
+import { ExemplarProduto } from '../../admin/produto/exemplar-produto.model';
 // tslint:disable:no-inferrable-types
 
 @Component({
   selector: 'app-carrinho',
   templateUrl: './carrinho.component.html',
-  providers: [ProdutoService],
+  providers: [ProdutoService, CarrinhoService],
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent implements OnInit {
 
-  public produtos: Array<any>;
+  public produtos: Array<ExemplarProduto> = new Array<ExemplarProduto>();
   public listaFiltrada = [];
   public paraExcluir: any;
   public filtroNomeProduto = '';
@@ -23,20 +25,36 @@ export class CarrinhoComponent implements OnInit {
   public categoriaAtual: any;
   public quantidadeSelecionada: number = 1;
   public subtotal: number;
+  public quantidade: number = 1;
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(private produtoService: ProdutoService, private carrinhoService: CarrinhoService) { }
 
   ngOnInit() {
     this.carregar();
   }
+
   public carregar() {
-    this.produtoService.getAll()
-      .subscribe(
-        _produtos => {
-          this.produtos = _produtos;
-          this.listaFiltrada = _produtos;
-          this.calculaSubtotal();
-        });
+    let listaCarrinho: Array<ExemplarProduto> = this.carrinhoService.getProdutos();
+    listaCarrinho.forEach(p => this.produtoService.getExemplarCarrinho(p.id)
+      .subscribe(data => {
+        this.produtos.push(data);
+        console.log('Dados: ', data);
+      })
+    );
+  }
+
+  public usuarioLogado() {
+    return false;
+  }
+
+  public getExemplarCarrinho(produto: Produto, exemplarId: number) {
+    return produto.exemplarprodutos.find(e => e.id == exemplarId);
+  }
+
+  calcularPreco(venda, quantidade){
+    console.log(this.produtos);
+    // this.produtos.
+    return (venda * quantidade).toFixed(2);
   }
 
   public excluir() {
@@ -60,7 +78,5 @@ export class CarrinhoComponent implements OnInit {
       console.log(this.subtotal);
     }
   }
-
-
 
 }

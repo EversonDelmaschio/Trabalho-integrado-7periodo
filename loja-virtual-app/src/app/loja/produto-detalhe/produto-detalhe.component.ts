@@ -25,13 +25,13 @@ export class ProdutoDetalheComponent implements OnInit {
   public categoriaId = 1;
   public linhaCores = '';
   public tamEscolhido;
-  public corEscolhida: string = "Azul";
+  public corEscolhida = '';
   public tamanhoInvalido = false;
   public carrinho: Carrinho = new Carrinho();
 
   public cores = ['Preto', 'Vermelho', 'Azul', 'Cinza'];
 
-  public tamanhos = [{id: 1, nome: 'PP'}, {id: 2, nome: 'P'}, {id: 3, nome: 'M'}, {id: 4, nome: 'G'}, {id: 5, nome: 'GG'}];
+  public tamanhos = [{ id: 1, nome: 'PP' }, { id: 2, nome: 'P' }, { id: 3, nome: 'M' }, { id: 4, nome: 'G' }, { id: 5, nome: 'GG' }];
 
   constructor(private http: Http, private produtoService: ProdutoService,
     private route: ActivatedRoute,
@@ -42,6 +42,7 @@ export class ProdutoDetalheComponent implements OnInit {
   ) {
     this.produto = new Produto();
     this.carrinho = new Carrinho();
+    this.corEscolhida = "Azul";
   }
 
   ngOnInit() {
@@ -77,15 +78,20 @@ export class ProdutoDetalheComponent implements OnInit {
     }
   }
 
-  public adicionarCarrinho() {
+  public adicionarCarrinho(redirecionar?: boolean) {
     if (!this.tamEscolhido) {
       this.tamanhoInvalido = true;
     } else {
-      for(let i =0; i < this.produto.exemplarprodutos.length; i++){
+      for (let i = 0; i < this.produto.exemplarprodutos.length; i++) {
         let exemplar: ExemplarProduto = this.produto.exemplarprodutos[i];
-        if(exemplar.tamanhoId == this.tamEscolhido && exemplar.cor == this.corEscolhida && exemplar.quantidade > 0){
+        console.log('Loop', exemplar, this.tamEscolhido, this.corEscolhida);
+        if (exemplar.tamanhoId == this.tamEscolhido && exemplar.cor == this.corEscolhida && exemplar.quantidade > 0) {
+          console.log('IF');
           let resposta: boolean = this.carrinhoService.adicionarProduto(exemplar);
-          if(resposta) this.toastr.success('Sucesso!', 'Produto Adicionado ao Carrinho!');
+          if (resposta) {
+            this.toastr.success('Sucesso!', 'Produto Adicionado ao Carrinho!');
+            if (redirecionar) this.router.navigate(['carrinho']);
+          }
           else this.toastr.warning("Produto ja Adicionado ao Carrinho", "Aviso!");
         }
       }
