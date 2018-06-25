@@ -1,5 +1,6 @@
-<div id="myCarousel" style="max-height: 500px; min-height: 400px;margin-bottom: 15px; width: 85%; margin-left: auto; margin-right: auto"
-  class="carousel slide" data-ride="carousel">
+
+<div class="page-content">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -10,15 +11,15 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img class="img-center" style="width: 75%; height: 400px;" src="./assets/imagens/carrosel-1.jpg">
+      <img class="img-center fill" src="./assets/imagens/carrosel-1.jpg">
     </div>
 
     <div class="item">
-      <img class="img-center" src="./assets/imagens/carrosel-2.jpg">
+      <img class="img-center fill" src="./assets/imagens/carrosel-2.jpg">
     </div>
 
     <div class="item">
-      <img class="img-center" src="./assets/imagens/carrosel-3.jpg">
+      <img class="img-center fill" src="./assets/imagens/carrosel-3.jpg">
     </div>
   </div>
 
@@ -33,38 +34,25 @@
   </a>
 </div>
 
-<!-- <div class="container-fluid">
-  <div class="col-md-offset-1">
-    <ol class="breadcrumb" style="background-color: white;">
-      <li class="active">Home</li>
-    </ol>
-  </div>
-</div> -->
-
-
 <!-- Page Content -->
 <div class="container">
 
   <div class="row">
 
     <div class="col-md-3">
-      <div class="list-group">
-        <a class="list-group-item list-group-item-info">Roupas</a>
-        <a class="list-group-item">Bruzinha</a>
-        <a href="#" class="list-group-item">Sainha</a>
-        <a href="#" class="list-group-item">Seu Tião</a>
-      </div>
+        <a class="list-group-item list-group-item-info catalog-filter-head"><span class="glyphicon glyphicon-minus"></span> Roupas</a>
+
+        <ul class="catalog-filter-list list-group">
+            <li class="catalog-filter-list-item" *ngFor="let c of categorias">
+                <input type="checkbox" (click)="filtrarCategoria(c.id)" name="cc">
+                <a href="#">{{ c.nome }}</a>
+            </li>
+        </ul>
 
       <div class="list-group">
-        <a class="list-group-item list-group-item-info">Cor</a>
-        <a class="list-group-item">Branco</a>
-        <a href="#" class="list-group-item">Preto</a>
-        <a href="#" class="list-group-item">Azul</a>
-      </div>
-
-      <div class="list-group">
-        <a class="list-group-item list-group-item-info">Preço</a>
-        <a class="list-group-item">Bruzinha</a>
+        <a class="list-group-item list-group-item-info catalog-filter-head"><span class="glyphicon glyphicon-minus"></span> Preço</a>
+        <input class="list-group-item price-filter-list" placeholder="Minimo (R$)" type="number" id="precomin">
+        <input class="list-group-item price-filter-list" placeholder="Máximo (R$)" type="number" id="precomax">
       </div>
     </div>
 
@@ -84,12 +72,12 @@
                 <s style="color: #555555;">$89.90</s> {{p.venda}}
               </h4>
               <div class="ratings">
-                <p>
+                <p style="color: #000;">
                   <span class="glyphicon glyphicon-star gold-star"></span>
                   <span class="glyphicon glyphicon-star gold-star"></span>
                   <span class="glyphicon glyphicon-star gold-star"></span>
                   <span class="glyphicon glyphicon-star gold-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star black-star"></span>
                   (11)
                 </p>
 
@@ -154,4 +142,4 @@
   </footer>
 
 </div>
-<!-- /.container -->
+</div>

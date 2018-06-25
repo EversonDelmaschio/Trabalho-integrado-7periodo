@@ -1,6 +1,6 @@
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-      color: #ffa6e2;
+      color: #FFBCDC;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -10,7 +10,7 @@
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
       color: #ff96e2;
-      background-color: #ff62b0;
+      background-color: #FF98CA;
     }
   }
   
@@ -18,16 +18,23 @@
     text-align: center;
   }
   .produto p{
+      color: #FF98CA;
     font-size: 10px;
   }
   .produto a{
-    font-size: 22px;
-    color: #000;
+    font-size: 20px;
+    color: #333;
+  }
+  .produto .thumbnail{
+      border-color: #e0e0e0;
   }
   
   span.gold-star{
     font-size: 12px;
     color: #fdb602;
+  }
+  span.black-star{
+      color: #000;
   }
   
   footer{
@@ -38,3 +45,63 @@
     margin-left: auto;
     margin-right: auto
   }
+
+
+.catalog-filter-head, .catalog-filter-head:hover, .catalog-filter-head:focus {
+    background-color: #f9f9f9 !important;
+    border: 1px solid #e0e0e0 !important;
+    color: #333;
+    font-weight: bold;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.catalog-filter-list{
+    width: 100%;
+    max-height: 168px;
+    overflow: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+    border-radius: 1px;
+    padding-left: 8px;
+    background-color: #fff;
+}
+
+.catalog-filter-list a{
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.price-filter-list{
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding-left: 8px;
+}
+
+.carousel{
+    margin-bottom: 50px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    position:relative;
+    background:#40464b;
+    height:100%;
+    padding:40px 30%;
+    margin:0;
+}
+
+
+.pagination li > a{
+    color: #FF5FAF;
+    border: 1px solid #FFC6F2;
+}
+
+.fill{
+    width: 75%;
+}

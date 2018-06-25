@@ -10,7 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-produto-detalhe',
   templateUrl: './produto-detalhe.component.html',
   providers: [ProdutoService, CategoriaService],
-  styleUrls: ['./produto-detalhe.component.css']
+  styleUrls: ['./produto-detalhe.component.css'],
+  host: {'class': "page-content"}
 })
 export class ProdutoDetalheComponent implements OnInit {
     // tslint:disable-next-line:no-trailing-whitespace
