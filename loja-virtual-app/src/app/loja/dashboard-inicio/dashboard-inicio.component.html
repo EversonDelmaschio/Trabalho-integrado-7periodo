@@ -63,7 +63,7 @@
 
         <div class="col-sm-3 col-lg-3 col-md-3 produto" *ngFor="let p of produtos">
           <div class="thumbnail">
-            <img src="{{p.imagens[0].link}}" alt="">
+            <img src="{{p.imagens[0]?.link}}" alt="">
             <div class="caption">
               <h4>
                 <a routerLink="produto-detalhe/{{p.id}}">{{p.nome}}</a>
